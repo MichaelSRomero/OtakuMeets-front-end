@@ -14,7 +14,6 @@ import QuizContainer from './components/QuizContainer'
 class App extends React.Component {
 
   render() {
-    console.log("HISTORY PROPS: ", this.props)
     return (
       <div className="App">
         <Header />

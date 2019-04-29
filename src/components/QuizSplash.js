@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getTraits } from '../actions/quizActions';
 import { Redirect } from 'react-router-dom';
 
 class QuizSplash extends React.Component {
   componentDidMount() {
-    // fetch traits
+    this.props.getTraits()
   }
 
   render() {
@@ -35,4 +36,4 @@ const mapStateToProps = ({auth}) => {
   }
 }
 
-export default connect(mapStateToProps)(QuizSplash);
+export default connect(mapStateToProps, { getTraits })(QuizSplash);
