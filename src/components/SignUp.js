@@ -1,4 +1,6 @@
 import React from 'react';
+import { signUp } from '../actions/authActions'
+import { connect } from 'react-redux';
 
 class SignUp extends React.Component {
   state = {
@@ -7,6 +9,12 @@ class SignUp extends React.Component {
     password: "",
     gender: "",
     preference: ""
+  }
+
+  handleSignUp = (e) => {
+    e.preventDefault();
+    console.log(`New User: ${this.state.username} has Signed Up`)
+    this.props.signUp(this.state, this.props.history.push)
   }
 
   handleChange = (e) => {
@@ -18,7 +26,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div id="sign-up">
-        <form onSubmit={(e) => this.props.handleSignUp(e, this.state)}>
+        <form onSubmit={this.handleSignUp}>
           {/***************EMAIL***************/}
           <input
             type="text"
@@ -79,4 +87,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default connect(null, { signUp })(SignUp);

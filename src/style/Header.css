@@ -1,0 +1,20 @@
+#logo {
+  display: inline-block;
+  margin-left: 65px;
+}
+
+.header-log-in {
+  display: inline-block;
+  float: right;
+  margin-right: 65px;
+}
+
+.header-log-in > span {
+  margin-right: 17px;
+}
+
+#log-in {
+  display: inline-block;
+  border-style: solid;
+  padding: 0 14px;
+}

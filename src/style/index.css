@@ -9,19 +9,23 @@ body {
 }
 
 #header {
-  height: 10vh;
+  height: 40px;
   width: 100vw;
-  background-color: rgba(112, 120, 134, 1);
+  background-color: rgb(143, 184, 200);
+  padding: 30px 0;
 }
 
 div#container {
-  height: 80vh;
+  height: 700px;
   width: 100vw;
-  background-color: rgba(138, 145, 160, 1)
+  /* background-color: rgba(138, 145, 160, 1) */
+  background-image: url('../images/waifu-landing-page-3.png');
+  background-origin: border-box;
+  background-size: cover;
 }
 
 #footer {
-  height: 10vh;
+  height: 100px;
   width: 100vw;
   background-color: rgba(42, 49, 61, 1);
 }
