@@ -18,6 +18,8 @@ const authReducer = (state = initialState, action) => {
       return {...state, id: userID, username: username}
     case 'LOG_IN':
       const existingUser = action.payload
+      // TODO:
+      // (1) Save character to state
 
       return {...state, id: existingUser.id , username: existingUser.username}
     case 'LOG_OUT':

@@ -13,6 +13,7 @@ const quizReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_TRAITS':
       const traitsArray = action.payload
+      
       return {
         ...initialState,
         extraversion: traitsArray[0],

@@ -59,9 +59,9 @@ export const logIn = (userObj, push) => {
   }
 }
 
-export const createCharacter = (id, characterID) => {
+export const addCharacterToUser = (userID, characterID) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/users/${id}`, {
+    return fetch(`http://localhost:3000/users/${userID}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -72,8 +72,9 @@ export const createCharacter = (id, characterID) => {
           {"character_id": characterID}
         }
       )
-    }).then(res = > res.json())
+    }).then(res => res.json())
       .then(updatedUser => {
+        // Dispatch addCharacter() with a parameter of a character
         debugger
       })
   }

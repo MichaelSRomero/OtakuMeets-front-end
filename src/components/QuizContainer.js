@@ -26,7 +26,7 @@ class QuizContainer extends React.Component {
       // Object.keys(this.props.quiz) = ["Extraversion", "Introversion", ...]
       // EX: trait = this.props.quiz["Extraversion"]
       // CONT: trait = {id:, description:, answers:}
-      
+
       let trait = this.props.quiz[Object.keys(this.props.quiz)[Math.floor(currentStateIndex / 2)]]
 
       traitsArray.push(
@@ -53,6 +53,21 @@ class QuizContainer extends React.Component {
       // The last choice gets added to personalityReducer;
       // then PUSH to Character Page
       this.props.addPointToTrait(this.state.traitChoice)
+      // TODO:
+      // (1) Compare all traits in pairs and pull the traits with the highest points
+      //_____EX: extrovert > introvert ? extrovert : introvert
+      // (2) Save all trait's Symbols into a string
+      //_____EX: let personality = "EN"
+      //         personality += "F"
+      // (3) Find the personality that matches the user's personality variable
+      //_____EX: Personality.find_by(title: personality)
+      //         => {title: 'ENFP', characters: [...], traits: [...]}
+      // (4) Select a randomized Character from the Personality matched
+      //_____EX: let randomIndex = Math.Floor(Math.random() * personality.characters.length)
+      //         personality.characters[randomIndex]
+      //         => {english_name: "Naruto Uzumaki", ...}
+      // (5) Save the Character object to STORE using "ADD_CHARACTER"
+      // (4) Send a PATCH request to ".../users/:id" passing
       this.props.history.push('/character');
     }
   }
