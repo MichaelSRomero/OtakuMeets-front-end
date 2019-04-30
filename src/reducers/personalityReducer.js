@@ -13,6 +13,10 @@ const initialState = {
 // compare its values to decide which trait they are
 const personalityReducer = (state = initialState, action) => {
   switch(action.type) {
+    case "ADD_POINT":
+      let trait = action.payload.toLowerCase()
+
+      return {...state, [trait]: state[trait] + 1}
     default:
       return state;
   }

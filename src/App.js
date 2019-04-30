@@ -8,9 +8,8 @@ import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import QuizSplash from './components/QuizSplash'
 import QuizContainer from './components/QuizContainer'
+import CharacterContainer from './components/CharacterContainer'
 
-// TODO:
-// (1) handle Auth
 class App extends React.Component {
 
   render() {
@@ -21,7 +20,8 @@ class App extends React.Component {
           <Route path="/login" render={ (routerProps) => <LogIn {...routerProps}/> } />
           <Route path="/signup" render={ (routerProps) => <SignUp {...routerProps}/> } />
           <Route path="/quiz-splash" render={ (routerProps) => <QuizSplash {...routerProps}/> } />
-          <Route path="/quiz" render={ () => <QuizContainer/> } />
+          <Route path="/quiz" render={ (routerProps) => <QuizContainer {...routerProps}/> } />
+          <Route path="/character" render={ () => <CharacterContainer/> } />
           <Route path="/" render={ () => <Home /> } />
         </Switch>
       </div>
