@@ -26,6 +26,7 @@ class QuizContainer extends React.Component {
       // Object.keys(this.props.quiz) = ["Extraversion", "Introversion", ...]
       // EX: trait = this.props.quiz["Extraversion"]
       // CONT: trait = {id:, description:, answers:}
+      
       let trait = this.props.quiz[Object.keys(this.props.quiz)[Math.floor(currentStateIndex / 2)]]
 
       traitsArray.push(

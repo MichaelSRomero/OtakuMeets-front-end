@@ -3,6 +3,7 @@
 /////////////////////////////////////////
 const createUser = (newUser) => ({type: 'SIGN_UP', payload: newUser})
 const logInUser = (existingUser) => ({type: 'LOG_IN', payload: existingUser})
+const addCharacter = (character) => ({type: 'ADD_CHARACTER', payload: character})
 export const logOutUser = () => ({type: 'LOG_OUT'})
 export const saveToken = (token) => ({type: 'SAVE_TOKEN', payload: token})
 
@@ -48,12 +49,32 @@ export const logIn = (userObj, push) => {
           dispatch(logInUser(userJSON.user))
           dispatch(saveToken(userJSON.jwt))
           localStorage.setItem('jwt', userJSON.jwt)
-          
+
           // PUSH EXISTING USER TO REGULAR PAGE
           push('/quiz-splash')
         } else {
           console.log("ERRORS: ", userJSON)
         }
+      })
+  }
+}
+
+export const createCharacter = (id, characterID) => {
+  return (dispatch) => {
+    return fetch(`http://localhost:3000/users/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(
+        {user:
+          {"character_id": characterID}
+        }
+      )
+    }).then(res = > res.json())
+      .then(updatedUser => {
+        debugger
       })
   }
 }
