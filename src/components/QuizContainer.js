@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { addPointToTrait } from '../actions/personalityActions';
+import { addCharacterToUser } from '../actions/authActions';
 import Answer from './Answer'
 
 class QuizContainer extends React.Component {
@@ -52,34 +53,67 @@ class QuizContainer extends React.Component {
     } else {
       // The last choice gets added to personalityReducer;
       // then PUSH to Character Page
-      this.props.addPointToTrait(this.state.traitChoice)
+      let personalityType = ''
+      this.props.addPointToTrait(this.state.traitChoice).then(() => {
+        let personalityType = this.findPersonality()
+
+        this.props.addCharacterToUser(this.props.auth.id, personalityType)
+        this.props.history.push('/character');
+      })
       // TODO:
-      // (1) Compare all traits in pairs and pull the traits with the highest points
+      // (X) Compare all traits in pairs and pull the traits with the highest points
       //_____EX: extrovert > introvert ? extrovert : introvert
-      // (2) Save all trait's Symbols into a string
+      // (X) Save all trait's Symbols into a string
       //_____EX: let personality = "EN"
       //         personality += "F"
-      // (3) Find the personality that matches the user's personality variable
+      // (X) Find the personality that matches the user's personality variable
       //_____EX: Personality.find_by(title: personality)
       //         => {title: 'ENFP', characters: [...], traits: [...]}
-      // (4) Select a randomized Character from the Personality matched
+      // (X) Select a randomized Character from the Personality matched
       //_____EX: let randomIndex = Math.Floor(Math.random() * personality.characters.length)
       //         personality.characters[randomIndex]
       //         => {english_name: "Naruto Uzumaki", ...}
-      // (5) Save the Character object to STORE using "ADD_CHARACTER"
-      // (4) Send a PATCH request to ".../users/:id" passing
-      this.props.history.push('/character');
+      // (X) Save the Character object to STORE using "ADD_CHARACTER"
+      // (X) Send a PATCH request to ".../users/:id" passing in the Character ID to the body
+      //_____EX: {body: JSON.stringify( {user: {character_id: characterID} })}
+      // (X) Possibly update State with new updated User
+
     }
   }
+
 
   handleChange = (e) => {
     this.setState({traitChoice: e.target.value.toLowerCase()})
   }
 
+  // returns a Personality
+  // EX: "ESFP"
+  findPersonality = () => {
+    const traits = this.props.traitPoints
+    const traitKeys = Object.keys(traits)
+    let personalityType = ''
+
+    traitKeys.forEach( (key, i) => {
+      if (i % 2 === 0) {
+        let currentTrait = traits[key]
+        let nextTraitKey = traitKeys[i + 1]
+
+        personalityType += this.getHighestTrait(currentTrait, traits[nextTraitKey])
+      }
+    })
+
+    return personalityType;
+  }
+
+  // takes the highest score of a trait and returns its symbol
+  getHighestTrait = (traitOne, traitTwo) => {
+    return traitOne.score > traitTwo.score ? traitOne.symbol : traitTwo.symbol
+  }
+
   render() {
     return (
       <React.Fragment>
-        {this.props.token ?
+        {this.props.auth.token ?
           <div className="quiz-container">
             <form onSubmit={this.handleSubmit}>
               {this.createAnswers()}
@@ -94,8 +128,8 @@ class QuizContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({quiz, auth}) => {
-  return {quiz: quiz, token: auth.token}
+const mapStateToProps = ({quiz, auth, personalityTracker}) => {
+  return {quiz: quiz, auth: auth, traitPoints: personalityTracker}
 }
 
-export default connect(mapStateToProps, { addPointToTrait })(QuizContainer);
+export default connect(mapStateToProps, { addPointToTrait, addCharacterToUser })(QuizContainer);

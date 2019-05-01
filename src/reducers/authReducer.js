@@ -8,7 +8,7 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case "ADD_CHARACTER":
-      return "Added Character"
+      return {...state, character: action.payload}
     case 'SAVE_TOKEN':
       return {...state, token: action.payload}
     case 'SIGN_UP':

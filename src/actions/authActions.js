@@ -59,7 +59,20 @@ export const logIn = (userObj, push) => {
   }
 }
 
-export const addCharacterToUser = (userID, characterID) => {
+// export const getCharacterFromPersonalities = (personalityType) => {
+//   return (dispatch) => {
+//     return fetch(`http://localhost:3000/personalities/${personalityType}`)
+//       .then(res => res.json())
+//       .then(personality => {
+//         const characterList = personality.characters
+//         let randomIndex = Math.floor(Math.random() * characterList.length)
+//
+//         dispatch(addCharacter(characterList[randomIndex]))
+//       })
+//   }
+// }
+
+export const addCharacterToUser = (userID, personalityType) => {
   return (dispatch) => {
     return fetch(`http://localhost:3000/users/${userID}`, {
       method: 'PATCH',
@@ -67,15 +80,11 @@ export const addCharacterToUser = (userID, characterID) => {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify(
-        {user:
-          {"character_id": characterID}
-        }
-      )
+      body: JSON.stringify({"personality": personalityType})
     }).then(res => res.json())
       .then(updatedUser => {
         // Dispatch addCharacter() with a parameter of a character
-        debugger
+        dispatch(addCharacter(updatedUser.character))
       })
   }
 }
