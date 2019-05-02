@@ -2,3 +2,9 @@
   background-color: red;
   height: 400px;
 }
+
+.user-card {
+  background-color: white;
+  min-height: 200px;
+  min-width: 200px;
+}

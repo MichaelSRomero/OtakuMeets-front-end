@@ -13,11 +13,13 @@ import * as serviceWorker from './serviceWorker';
 import authReducer from './reducers/authReducer'
 import personalityReducer from './reducers/personalityReducer'
 import quizReducer from './reducers/quizReducer'
+import usersReducer from './reducers/usersReducer'
 
 const rootReducer = combineReducers({
   auth: authReducer,
   personalityTracker: personalityReducer,
-  quiz: quizReducer
+  quiz: quizReducer,
+  users: usersReducer
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
