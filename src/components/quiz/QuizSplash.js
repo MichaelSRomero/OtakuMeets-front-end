@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getTraits } from '../actions/quizActions';
+import { getTraits } from '../../actions/quizActions';
 import { Redirect } from 'react-router-dom';
 
 class QuizSplash extends React.Component {

@@ -7,7 +7,3 @@ export const addPointToTrait = (trait) => {
     return Promise.resolve()
   }
 }
-
-/////////////////////////////////////////
-//___________THUNK CREATORS____________//
-/////////////////////////////////////////

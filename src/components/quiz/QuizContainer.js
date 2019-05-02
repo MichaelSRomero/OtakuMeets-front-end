@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { addPointToTrait } from '../actions/personalityActions';
-import { addCharacterToUser } from '../actions/authActions';
+import { addPointToTrait } from '../../actions/personalityActions';
+import { addCharacterToUser } from '../../actions/authActions';
 import Answer from './Answer'
 
 class QuizContainer extends React.Component {
@@ -53,34 +53,15 @@ class QuizContainer extends React.Component {
     } else {
       // The last choice gets added to personalityReducer;
       // then PUSH to Character Page
-      let personalityType = ''
-      this.props.addPointToTrait(this.state.traitChoice).then(() => {
-        let personalityType = this.findPersonality()
+      this.props.addPointToTrait(this.state.traitChoice)
+        .then(() => {
+          let personalityType = this.findPersonality()
 
-        this.props.addCharacterToUser(this.props.auth.id, personalityType)
-        this.props.history.push('/character');
-      })
-      // TODO:
-      // (X) Compare all traits in pairs and pull the traits with the highest points
-      //_____EX: extrovert > introvert ? extrovert : introvert
-      // (X) Save all trait's Symbols into a string
-      //_____EX: let personality = "EN"
-      //         personality += "F"
-      // (X) Find the personality that matches the user's personality variable
-      //_____EX: Personality.find_by(title: personality)
-      //         => {title: 'ENFP', characters: [...], traits: [...]}
-      // (X) Select a randomized Character from the Personality matched
-      //_____EX: let randomIndex = Math.Floor(Math.random() * personality.characters.length)
-      //         personality.characters[randomIndex]
-      //         => {english_name: "Naruto Uzumaki", ...}
-      // (X) Save the Character object to STORE using "ADD_CHARACTER"
-      // (X) Send a PATCH request to ".../users/:id" passing in the Character ID to the body
-      //_____EX: {body: JSON.stringify( {user: {character_id: characterID} })}
-      // (X) Possibly update State with new updated User
-
+          this.props.addCharacterToUser(this.props.auth.id, personalityType)
+          this.props.history.push('/character');
+      });
     }
   }
-
 
   handleChange = (e) => {
     this.setState({traitChoice: e.target.value.toLowerCase()})

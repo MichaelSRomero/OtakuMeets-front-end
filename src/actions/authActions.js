@@ -51,26 +51,13 @@ export const logIn = (userObj, push) => {
           localStorage.setItem('jwt', userJSON.jwt)
 
           // PUSH EXISTING USER TO REGULAR PAGE
-          push('/quiz-splash')
+          push('/home')
         } else {
           console.log("ERRORS: ", userJSON)
         }
       })
   }
 }
-
-// export const getCharacterFromPersonalities = (personalityType) => {
-//   return (dispatch) => {
-//     return fetch(`http://localhost:3000/personalities/${personalityType}`)
-//       .then(res => res.json())
-//       .then(personality => {
-//         const characterList = personality.characters
-//         let randomIndex = Math.floor(Math.random() * characterList.length)
-//
-//         dispatch(addCharacter(characterList[randomIndex]))
-//       })
-//   }
-// }
 
 export const addCharacterToUser = (userID, personalityType) => {
   return (dispatch) => {
@@ -83,7 +70,6 @@ export const addCharacterToUser = (userID, personalityType) => {
       body: JSON.stringify({"personality": personalityType})
     }).then(res => res.json())
       .then(updatedUser => {
-        // Dispatch addCharacter() with a parameter of a character
         dispatch(addCharacter(updatedUser.character))
       })
   }

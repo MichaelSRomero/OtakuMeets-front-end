@@ -21,7 +21,12 @@ const authReducer = (state = initialState, action) => {
       // TODO:
       // (1) Save character to state
 
-      return {...state, id: existingUser.id , username: existingUser.username}
+      return {
+        ...state,
+        id: existingUser.id ,
+        username: existingUser.username,
+        character: existingUser.character
+      }
     case 'LOG_OUT':
       localStorage.clear()
       return {...state, id: '', username: '', token: '', character: {}}
