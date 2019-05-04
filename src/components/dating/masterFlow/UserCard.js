@@ -35,6 +35,16 @@ class UserCard extends React.Component {
         <h4>USERNAME: {this.props.users[index].username}</h4>
       </Card>
     )
+    // return (
+    //   <Card
+    //     className="user-card"
+    //     raised
+    //     style={
+    //       {backgroundImage: `url(${this.props.users.character.avatars[0]})`}
+    //     }
+    //   >
+    //   </Card>
+    // )
   }
 }
 
@@ -49,3 +59,4 @@ const mapStateToProps = ({ users, auth}) => {
 }
 
 export default connect(mapStateToProps)(UserCard);
+// export default UserCard;

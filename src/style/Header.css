@@ -1,20 +1,54 @@
 #logo {
   display: inline-block;
-  margin-left: 65px;
+  /* margin-left: 65px; */
+  margin-left: 20px;
+}
+
+#site-logo {
+  height: auto;
+  width: 100px;
+  transition: 0.3s;
+}
+
+#site-logo:hover {
+  transform: scale(1.1);
 }
 
 .header-log-in {
   display: inline-block;
-  float: right;
+  position: absolute;
+  right: 0px;
+  /* float: right; */
   margin-right: 65px;
 }
 
 .header-log-in > span {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
   margin-right: 17px;
 }
 
-#log-in {
+#btn-log-in {
   display: inline-block;
+  border-color: black;
+  border-radius: 4px;
   border-style: solid;
-  padding: 0 14px;
+  border-width: thin;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 14px;
+}
+
+#btn-log-in:hover {
+  /* Do something */
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
 }

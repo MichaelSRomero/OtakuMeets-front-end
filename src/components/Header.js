@@ -1,7 +1,9 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOut from './LogOut'
+import logo from '../images/luvdiscLogo-font.png'
 import '../style/Header.css'
 
 const Header = (props) => {
@@ -10,7 +12,7 @@ const Header = (props) => {
     <header id="header">
       <Link to="/">
         <div id="logo">
-          WEBSITE LOGO
+          <img id="site-logo" src={logo} alt="Logo"/>
         </div>
       </Link>
       {/*************************************
@@ -23,7 +25,7 @@ const Header = (props) => {
         <div className="header-log-in">
           <span>Have an account?</span>
           <Link to="/login">
-            <div id="log-in">Sign In</div>
+            <div id="btn-log-in">Sign In</div>
           </Link>
         </div>
       }

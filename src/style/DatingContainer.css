@@ -3,10 +3,30 @@
   height: 500px;
 }
 
+.detail-container {
+  overflow: auto;
+}
+
+.detailList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .user-card {
   background-color: white;
   background-position: center;
   background-size: cover;
   min-height: 350px;
   min-width: 100px;
+}
+
+.match-card {
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+  margin: 12px 8px;
+  /* min-width: 50px; */
+  min-height: 150px;
+  max-width: 100px;
 }
