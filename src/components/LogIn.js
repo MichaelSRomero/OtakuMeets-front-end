@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../actions/authActions'
-// import '../stye/LogIn.css'
+import '../style/login.css'
 
 class LogIn extends React.Component {
   state = {
@@ -23,12 +23,27 @@ class LogIn extends React.Component {
   render() {
     return (
       <div className="LogIn">
-        SIGN IN
-        <form onSubmit={this.handleLogIn}>
-          <input type="text" name="email" placeholder="Email" onChange={this.handleChange}/>
-          <input type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
-          <input type="submit"/>
-        </form>
+        <div className="outer-form">
+          <div className="login-header-title">
+            <span>Sign In</span>
+          </div>
+          <div className="login-img">
+          </div>
+          <form className="login-form" onSubmit={this.handleLogIn}>
+            <label>
+              <span>Email</span>
+              <input className="login-inputs" type="text" name="email" placeholder="Email" onChange={this.handleChange}/>
+            </label>
+            <label>
+              <span>Password</span>
+              <input className="login-inputs" type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
+            </label>
+            <div className="login-forgot">
+              <span>Forgot password?</span>
+            </div>
+            <input className="login-submit" type="submit"/>
+          </form>
+        </div>
       </div>
     )
   }

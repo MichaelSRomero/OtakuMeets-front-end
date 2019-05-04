@@ -1,0 +1,41 @@
+.LogIn {
+  font-family: 'Lato', sans-serif;
+  background-color: #59C1F7;
+  height: 700px;
+}
+
+.outer-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.login-header-title {
+  font-size: 19px;
+  text-align: center;
+}
+
+.login-inputs {
+  display: block;
+  border-style: none;
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  margin: 8px 0 16px 0;
+  padding: 0 10px;
+  width: 280px;
+  height: 46px;
+}
+
+label {
+  font-weight: 300;
+}
+
+.login-forgot {
+  color: #0000e0;
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
