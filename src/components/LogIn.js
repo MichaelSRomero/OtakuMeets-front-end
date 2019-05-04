@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../actions/authActions'
 import '../style/login.css'
+import loginGIF from '../images/login.gif'
 
 class LogIn extends React.Component {
   state = {
@@ -28,6 +29,7 @@ class LogIn extends React.Component {
             <span>Sign In</span>
           </div>
           <div className="login-img">
+            <img id="login-img" src={loginGIF} alt="Logo GIF"/>
           </div>
           <form className="login-form" onSubmit={this.handleLogIn}>
             <label>
@@ -41,7 +43,7 @@ class LogIn extends React.Component {
             <div className="login-forgot">
               <span>Forgot password?</span>
             </div>
-            <input className="login-submit" type="submit"/>
+            <input className="login-submit" type="submit" value="SIGN IN"/>
           </form>
         </div>
       </div>
