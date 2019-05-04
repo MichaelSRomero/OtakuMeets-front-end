@@ -29,6 +29,10 @@
   padding: 20px;
 }
 
+.signup-link {
+  text-decoration: none;
+}
+
 #signup-btn {
   background-color: rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0);
@@ -45,6 +49,7 @@
   text-align: center;
   width: 284px;
   height: 64px;
+  transition: 0.3s;
 }
 
 #signup-btn > img {
@@ -52,6 +57,14 @@
   width: 56px;
   height: auto;
   vertical-align: middle;
+}
+
+#signup-btn:hover {
+  transform: scale(1.1);
+}
+
+#signup-btn:active {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .terms-service {

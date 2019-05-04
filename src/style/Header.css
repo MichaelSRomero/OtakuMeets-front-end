@@ -38,14 +38,16 @@
   font-size: 13px;
   font-weight: bold;
   padding: 8px 14px;
+  transition: 0.3s;
 }
 
 #btn-log-in:hover {
-  /* Do something */
+  transform: scale(1.1);
 }
 
-a {
-  text-decoration: none;
+#btn-log-in:active {
+  border-color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 a:visited {

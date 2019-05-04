@@ -16,12 +16,14 @@
   font-size: 19px;
   text-align: center;
   margin-bottom: 8px;
+  padding-right: 14px;
 }
 
 .login-img {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 36px;
+  padding-right: 14px;
 }
 
 #login-img {
@@ -50,6 +52,7 @@ label {
   font-size: 15px;
   font-weight: 300;
   padding-top: 16px;
+  padding-right: 14px;
   text-align: center;
 }
 
@@ -63,8 +66,18 @@ label {
   font-size: 15px;
   font-weight: 700;
   margin-top: 96px;
+  outline: none;
   width: 300px;
   height: 54px;
+  transition: 0.3s;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+.login-submit:hover {
+  transform: scale(1.1);
+}
+
+input.login-submit:active {
+  background-color: rgb(229, 161, 175);
 }
