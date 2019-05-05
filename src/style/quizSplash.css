@@ -1,0 +1,44 @@
+.quiz-splash-container {
+  position: relative;
+  background-color: #59C1F7;
+  font-family: 'Lato', sans-serif;
+  height: 700px;
+}
+
+.quiz-top-background {
+  height: 58%;
+}
+
+.quiz-bottom-background {
+  height: 42%;
+  background-color: #008CBE;
+}
+
+.quiz-overlap-container {
+  background-color: grey;
+  position: absolute;
+  top: 66px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 544px;
+  width: 460px;
+  z-index: 1;
+}
+
+.quiz-content-card {
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px 30px;
+  height: 158px;
+  width: 200px;
+}
+
+.quiz-content-card > h3 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
