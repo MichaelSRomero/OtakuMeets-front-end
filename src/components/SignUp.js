@@ -1,6 +1,21 @@
 import React from 'react';
+import RadioGender from './RadioGender'
+import RadioPreference from './RadioPreference'
 import { signUp } from '../actions/authActions'
 import { connect } from 'react-redux';
+import '../style/signup.css'
+
+const genders = [
+  {title: "Man", gender: "Male"},
+  {title: "Woman", gender: "Female"},
+  {title: "Other", gender: "Other"}
+]
+
+const preferences = [
+  {title: "Men", gender: "Male"},
+  {title: "Women", gender: "Female"},
+  {title: "Both", gender: "Both"},
+]
 
 class SignUp extends React.Component {
   state = {
@@ -23,65 +38,95 @@ class SignUp extends React.Component {
     })
   }
 
+  createRadioGenders = () => {
+    return genders.map(genderObj => <RadioGender handleChange={this.handleChange} genderValue={genderObj}/>)
+  }
+
+  createRadioPreferences = () => {
+    return preferences.map(preferenceObj => <RadioPreference handleChange={this.handleChange} preferenceValue={preferenceObj}/>)
+  }
+
   render() {
     return (
       <div id="sign-up">
-        <form onSubmit={this.handleSignUp}>
-          {/***************EMAIL***************/}
-          <input
-            type="text"
-            name="email"
-            placeholder="your.email@example.com"
-            value={this.state.email}
-            onChange={this.handleChange}>
-          </input>
-          {/**************USERNAME**************/}
-          <input
-            type="text"
-            name="username"
-            placeholder="username"
-            value={this.state.username}
-            onChange={this.handleChange}>
-          </input>
-          {/**************PASSWORD**************/}
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.handleChange}>
-          </input>
+        <div className="outer-form">
 
-          <br></br>
+          <div className="signup-header-title">
+            <div className="signup-title">
+              <span>About you</span>
+            </div>
 
-          <label> Which gender best describes you?
-            <br></br>
-            {/**************GENDER**************/}
-            <select name="gender" onChange={this.handleChange} defaultValue="placeholder">
-              <option value="placeholder" disabled hidden>Gender</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Other">Other</option>
-            </select>
-          </label>
+            <div className="signup-header">
+              <span>Welcome! Who are you?</span>
+            </div>
+          </div>
 
-          <br></br>
+          <div className="">
+          </div>
 
-          <label> Who are you looking to meet?
-            <br></br>
-            {/************PREFERENCE************/}
-            <select name="preference" onChange={this.handleChange} defaultValue="placeholder">
-              <option value="placeholder" disabled hidden>Seeking</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Both">Both</option>
-            </select>
-          </label>
+          <form className="signup-form" onSubmit={this.handleSignUp}>
+            {/***************EMAIL***************/}
+            <input
+              className="signup-inputs"
+              type="text"
+              name="email"
+              placeholder="your.email@example.com"
+              value={this.state.email}
+              onChange={this.handleChange}>
+            </input>
 
-          <br></br>
-          {/***************SUBMIT***************/}
-          <input type="submit" name="submit"></input>
-        </form>
+            <div className="form-column">
+              {/**************USERNAME**************/}
+              <input
+                className="signup-inputs left-input"
+                type="text"
+                name="username"
+                placeholder="username"
+                value={this.state.username}
+                onChange={this.handleChange}>
+              </input>
+
+              {/**************PASSWORD**************/}
+              <input
+                className="signup-inputs right-input"
+                type="password"
+                name="password"
+                placeholder="password"
+                value={this.state.password}
+                onChange={this.handleChange}>
+              </input>
+            </div>
+
+            <label>
+              <div className="signup-label">
+                <span>Which gender best describes you?</span>
+              </div>
+              {/**************GENDER**************/}
+              <div className="gender-container">
+                {this.createRadioGenders()}
+              </div>
+            </label>
+
+            <label>
+              <div className="signup-label">
+                <span>Who are you looking to meet?</span>
+              </div>
+              {/************PREFERENCE************/}
+              <div className="preference-container">
+                {this.createRadioPreferences()}
+              </div>
+            </label>
+
+            {/***************SUBMIT***************/}
+            <input
+              className="signup-submit"
+              type="submit"
+              name="submit"
+              value="NEXT">
+            </input>
+
+          </form>
+        </div>
       </div>
     )
   }

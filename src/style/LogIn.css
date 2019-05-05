@@ -38,6 +38,7 @@
   font-family: 'Lato', sans-serif;
   font-size: 15px;
   margin: 8px 0 16px 0;
+  outline: none;
   padding: 0 14px;
   width: 272px;
   height: 46px;
@@ -80,4 +81,13 @@ label {
 
 input.login-submit:active {
   background-color: rgb(229, 161, 175);
+}
+
+.facebook-login {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding-top: 16px;
+  padding-right: 14px;
+  font-weight: 500;
 }
