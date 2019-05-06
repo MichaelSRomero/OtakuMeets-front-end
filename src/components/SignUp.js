@@ -61,9 +61,6 @@ class SignUp extends React.Component {
             </div>
           </div>
 
-          <div className="">
-          </div>
-
           <form className="signup-form" onSubmit={this.handleSignUp}>
             {/***************EMAIL***************/}
             <input

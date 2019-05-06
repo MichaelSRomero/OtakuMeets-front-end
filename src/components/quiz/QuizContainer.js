@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { addPointToTrait } from '../../actions/personalityActions';
 import { addCharacterToUser } from '../../actions/authActions';
+import '../../style/quizContainer.css'
 import Answer from './Answer'
 
 class QuizContainer extends React.Component {
 
   state = {
     traitIndex: 0,
-    traitChoice: ""
+    traitChoice: "",
+    currentChecked: null,
+    page: 1
   }
 
   createAnswers = () => {
@@ -34,6 +37,8 @@ class QuizContainer extends React.Component {
         <Answer
           key={i}
           trait={trait}
+          currentChecked={this.state.currentChecked}
+          handleClick={this.handleClick}
           handleChange={this.handleChange}
           index={i}/>
       )
@@ -49,7 +54,13 @@ class QuizContainer extends React.Component {
 
     if (indexState < 12) {
       this.props.addPointToTrait(this.state.traitChoice)
-      this.setState({traitIndex: indexState + 4})
+
+      this.setState((state) => ({
+          traitIndex: indexState + 4,
+          page: state.page + 1
+        })
+      )
+
     } else {
       // The last choice gets added to personalityReducer;
       // then PUSH to Character Page
@@ -61,6 +72,23 @@ class QuizContainer extends React.Component {
           this.props.history.push('/character');
       });
     }
+  }
+
+  handleClick = (e, index) => {
+    let value;
+
+    if (e.target.className === "answer-box") {
+      value = e.target.querySelector('input').value
+    } else if (e.target.tagName === "P") {
+      value = e.target.parentElement.parentElement.querySelector('input').value
+    } else if (e.target.className === "answer-checkbox") {
+      value = e.target.querySelector('input').value
+    }
+
+    this.setState({
+      traitChoice: value.toLowerCase(),
+      currentChecked: index
+    });
   }
 
   handleChange = (e) => {
@@ -96,10 +124,42 @@ class QuizContainer extends React.Component {
       <React.Fragment>
         {this.props.auth.token ?
           <div className="quiz-container">
-            <form onSubmit={this.handleSubmit}>
-              {this.createAnswers()}
-              <input type="submit" value="Next"></input>
-            </form>
+            <div className="quiz-top-background">
+            </div>
+
+            <div className="quiz-bottom-background">
+            </div>
+
+            <div className="quiz-overlap-answers">
+              <div className="quiz-header-title">
+                <div className="quiz-pages">
+                  <span> {this.state.page} of 8</span>
+                </div>
+
+                <div className="quiz-title">
+                  <span>About you</span>
+                </div>
+
+                <div className="quiz-header">
+                  <span>What describes you best?</span>
+                </div>
+
+              </div>
+
+              <form onSubmit={this.handleSubmit}>
+                <div className="answer-container">
+                  {this.createAnswers()}
+                </div>
+
+                <input
+                  className="quiz-next-btn"
+                  type="submit"
+                  value="Next">
+                </input>
+
+              </form>
+            </div>
+
           </div>
           :
           <Redirect to="/" />
