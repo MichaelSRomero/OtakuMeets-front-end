@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getTraits } from '../../actions/quizActions';
 import { Redirect } from 'react-router-dom';
+import quizLogo from '../../images/quiz-splash-icon.gif'
 import '../../style/quizSplash.css'
 
 class QuizSplash extends React.Component {
@@ -16,7 +17,7 @@ class QuizSplash extends React.Component {
           If User is logged in, render this page
           Else redirect to HOME page
         **************************************/}
-        {localStorage ?
+        {this.props.token ?
           <div className="quiz-splash-container">
             <div className="quiz-top-background">
             </div>
@@ -27,14 +28,15 @@ class QuizSplash extends React.Component {
             <div className="quiz-overlap-container">
               <div className="quiz-content-card">
                 <h3>Tell us about yourself</h3>
-                <span></span>
+                <span>So we can find a character that describes you.</span>
               </div>
 
               <div className="quiz-img-icon">
+                <img id="quiz-img-icon" src={quizLogo} alt="Logo GIF"/>
               </div>
 
               <div className="quiz-btn">
-                <button onClick={() => this.props.history.push('/quiz')}>Next</button>
+                <button onClick={() => this.props.history.push('/quiz')}>NEXT</button>
               </div>
             </div>
 

@@ -15,7 +15,6 @@
 }
 
 .quiz-overlap-container {
-  background-color: grey;
   position: absolute;
   top: 66px;
   bottom: 0;
@@ -30,6 +29,8 @@
 
 .quiz-content-card {
   background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
   margin-left: auto;
   margin-right: auto;
   padding: 25px 30px;
@@ -39,6 +40,52 @@
 
 .quiz-content-card > h3 {
   font-size: 24px;
-  text-align: center;
+  margin: 12px 0px;
+  /* text-align: center; */
+  font-weight: 800;
+}
+
+.quiz-content-card > span {
+  font-size: 19px;
+  /* text-align: center; */
+}
+
+.quiz-img-icon {
+  margin-top: 46px;
+  margin-bottom: 124px;
+}
+
+#quiz-img-icon {
+  display: block;
+  border-bottom: black solid 1.5px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 108px;
+  width: auto;
+}
+
+.quiz-btn > button {
+  display: block;
+  background-color: #E5B8C1;
+  border-style: none;
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
   font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+  outline: none;
+  width: 300px;
+  height: 54px;
+  transition: 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.quiz-btn > button:hover {
+  transform: scale(1.1);
+}
+
+.quiz-btn > button:active {
+  background-color: rgb(229, 161, 175);
 }
