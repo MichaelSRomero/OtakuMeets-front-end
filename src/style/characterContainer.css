@@ -1,0 +1,97 @@
+.character-container {
+  background-color: #59C1F7;
+  background-image: url('../images/Fairy-tail-logo.png');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  font-family: 'Lato', sans-serif;
+  height: 700px;
+}
+
+.character-info {
+  border-radius: 6px;
+  margin: 0px auto;
+  height: 500px;
+  width: 500px;
+}
+
+.character-you-are {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  padding-top: 16px;
+  margin-bottom: 32px;
+}
+
+.character-avatar {
+  margin: 0px auto;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  border-radius: 50%;
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-position: center;
+  background-size: contain;
+  height: 100%;
+}
+
+.character-name {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.character-personality-card {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 0px auto;
+  height: 250px;
+  width: 400px;
+  transition: 0.3s;
+}
+
+.character-personality-card:hover {
+  box-shadow: 0 12px 20px 0 rgba(0,0,0,0.2);
+}
+
+.personality-header {
+  /* background-color: blue; */
+  width: 100%;
+}
+
+.personality-symbol {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 48px;
+  height: 48px;
+  width: 25%;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.personality-symbol:hover {
+  border-radius: 6px 6px 0px 0px;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.personality-trait {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+  padding: 8px 0 0 16px;
+}
+
+.trait-info {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 300;
+  padding: 8px 16px;
+}

@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 class MatchCard extends React.Component {
   render() {
     return (
+      this.props.user.length > 0 &&
       <Card
         className="match-card"
         style={
