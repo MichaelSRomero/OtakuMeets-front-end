@@ -10,11 +10,11 @@ class DatingContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        { this.props.token ?
-          <Grid container>
+        { localStorage ?
+          <div className="dating-container">
             <DetailContainer />
             <MasterContainer />
-          </Grid>
+          </div>
           :
           this.props.history.push("/")
         }

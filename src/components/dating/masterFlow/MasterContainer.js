@@ -20,18 +20,22 @@ class MasterContainer extends React.Component {
 
   render() {
     return (
-      <Grid
-        className="master-container"
-        container
-        xs={8}
-        alignItems="center"
-        justify="center">
-        <UserCard />
-      </Grid>
+      <div className="master-container">
+        <div className="user-card">
+        </div>
+      </div>
     )
   }
 }
 
+{/*<Grid
+  className="master-container"
+  container
+  xs={8}
+  alignItems="center"
+  justify="center">
+  <UserCard />
+</Grid>*/}
 const mapStateToProps = ({ users, auth}) => {
   return {users: users, auth: auth}
   // if (auth.preference === "Female") {

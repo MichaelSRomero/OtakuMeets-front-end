@@ -11,12 +11,9 @@ class DetailContainer extends React.Component {
   }
 
   render() {
-    return ( this.props.users.length > 0 &&
-      <Grid className="detail-container" xs={4}>
-        <div className="detail-list">
-          {this.createMatchCards()}
-        </div>
-      </Grid>
+    return (
+      <div className="detail-container">
+      </div>
     )
   }
 }
@@ -26,3 +23,11 @@ const mapStateToProps = ({ users }) => {
 }
 
 export default connect(mapStateToProps)(DetailContainer);
+
+
+// return ( this.props.users.length > 0 &&
+  {/*<Grid className="detail-container" xs={4}>
+    <div className="detail-list">
+      {this.createMatchCards()}
+    </div>
+  </Grid>*/}

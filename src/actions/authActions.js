@@ -70,7 +70,15 @@ export const addCharacterToUser = (userID, personalityType) => {
       body: JSON.stringify({"personality": personalityType})
     }).then(res => res.json())
       .then(updatedUser => {
-        dispatch(addCharacter(updatedUser.character))
+        const character = updatedUser.character
+        const randomIndex = Math.floor(Math.random() * character["avatar_urls"].length)
+        
+        dispatch(addCharacter(
+          {
+            ...character,
+            "avatar_urls": character["avatar_urls"][randomIndex]
+          }
+        ))
       })
   }
 }

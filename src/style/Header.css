@@ -78,6 +78,7 @@ a:visited {
 
 #btn-log-out:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 #btn-log-out:active {
