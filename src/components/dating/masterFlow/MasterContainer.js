@@ -1,9 +1,14 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import UserCard from './UserCard';
+import GameIconSmall from './GameIconSmall';
+import GameIconLarge from './GameIconLarge';
 import Swipe from 'react-easy-swipe';
 import { connect } from 'react-redux';
 import { getAllUsers } from '../../../actions/usersActions';
+import nope from '../../../images/tinder-nope.png'
+import back from '../../../images/tinder-back.png'
+import favorite from '../../../images/tinder-favorite.png'
+import like from '../../../images/tinder-like.png'
 
 class MasterContainer extends React.Component {
 
@@ -22,6 +27,13 @@ class MasterContainer extends React.Component {
     return (
       <div className="master-container">
         <div className="user-card">
+        </div>
+
+        <div className="gamepad">
+          <GameIconSmall img={back}/>
+          <GameIconLarge img={nope}/>
+          <GameIconSmall img={favorite}/>
+          <GameIconLarge img={like}/>
         </div>
       </div>
     )
