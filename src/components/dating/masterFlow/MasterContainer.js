@@ -1,8 +1,8 @@
 import React from 'react';
+import Swipeable from "react-swipy"
 import UserCard from './UserCard';
 import GameIconSmall from './GameIconSmall';
 import GameIconLarge from './GameIconLarge';
-import Swipe from 'react-easy-swipe';
 import { connect } from 'react-redux';
 import { getAllUsers } from '../../../actions/usersActions';
 import nope from '../../../images/tinder-nope.png'
@@ -16,6 +16,10 @@ import downKey from '../../../images/key-down.png'
 import spaceKey from '../../../images/space-key.png'
 
 class MasterContainer extends React.Component {
+
+  state = {
+    cardIndex: 0
+  }
 
   componentDidMount() {
     const userID = this.props.auth.id
@@ -31,25 +35,10 @@ class MasterContainer extends React.Component {
   render() {
     return (
       <div className="master-container">
-        <div className="user-card">
-
-          <div className="card-info">
-
-            <div className="info-header">
-              <div className="username">
-                <span>Liikemike</span>
-              </div>
-
-              <div className="user-age">
-                <span>27</span>
-              </div>
-            </div>
-
-            <div className="personality">
-              <span>ISFP</span>
-            </div>
-            
-          </div>
+        <div className="">
+          <Swipeable>
+            <UserCard />
+          </Swipeable>
         </div>
 
         <div className="gamepad">

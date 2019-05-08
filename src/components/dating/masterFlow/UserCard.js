@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '@material-ui/core/Card';
+import Swipeable from "react-swipy"
 import { connect } from 'react-redux';
 
 class UserCard extends React.Component {
@@ -24,16 +24,25 @@ class UserCard extends React.Component {
     console.log("RENDER: ", this.props.users);
 
     return (
-      this.props.users.length > 0 &&
-      <Card
-        className="user-card"
-        raised
-        style={
-          {backgroundImage: `url(${this.props.users[index].character.avatars[0]})`}
-        }
-        onClick={this.handleClick}>
-        <h4>USERNAME: {this.props.users[index].username}</h4>
-      </Card>
+      <div className="user-card">
+        <div className="card-info">
+
+          <div className="info-header">
+            <div className="username">
+              <span>Liikemike</span>
+            </div>
+
+            <div className="user-age">
+              <span>27</span>
+            </div>
+          </div>
+
+          <div className="personality">
+            <span>ISFP</span>
+          </div>
+
+        </div>
+      </div>
     )
     // return (
     //   <Card
@@ -60,3 +69,15 @@ const mapStateToProps = ({ users, auth}) => {
 
 export default connect(mapStateToProps)(UserCard);
 // export default UserCard;
+
+
+// this.props.users.length > 0 &&
+// <Card
+//   className="user-card"
+//   raised
+//   style={
+//     {backgroundImage: `url(${this.props.users[index].character.avatars[0]})`}
+//   }
+//   onClick={this.handleClick}>
+//   <h4>USERNAME: {this.props.users[index].username}</h4>
+// </Card>
