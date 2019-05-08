@@ -13,6 +13,43 @@ class DetailContainer extends React.Component {
   render() {
     return (
       <div className="detail-container">
+
+        <div className="list-header">
+          <div className="list-header-text">
+            <span>Matches</span>
+          </div>
+
+          <div className="list-header-text">
+            <span>Messages</span>
+          </div>
+        </div>
+
+        <div className="detail-list">
+          <div className="match-card">
+            <div className="match-info">
+              <span>Wendy3000TheRare</span>
+            </div>
+          </div>
+
+          <div className="match-card">
+            <div className="match-info">
+              <span>Wendy3000TheRare</span>
+            </div>
+          </div>
+
+          <div className="match-card">
+            <div className="match-info">
+              <span>Wendy3000TheRare</span>
+            </div>
+          </div>
+
+          <div className="match-card">
+            <div className="match-info">
+              <span>Wendy3000TheRare</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     )
   }

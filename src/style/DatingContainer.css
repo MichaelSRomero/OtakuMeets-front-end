@@ -1,7 +1,7 @@
 .dating-container {
   display: flex;
   /* background-color: rgba(243, 246, 249, 1); */
-  background-color: blue;
+  /* background-color: blue; */
   font-family: 'Lato', sans-serif;
   height: 697.5px;
   width: 100%;
@@ -171,18 +171,62 @@
   width: 30%;
 }
 
-/* .detailList {
+.list-header {
   display: flex;
+  background-color: rgba(153,102,153, 0.7);
+  color: #424242;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px 24px;
+  height: 26px;
+  width: 85.1%;
+}
+
+.list-header-text {
+  margin-right: 16px;
+}
+
+/* Only selected div gets highlighted */
+.list-header-text > span {
+  border-bottom: rgba(255, 0, 0, 0.5) solid 2px;
+  cursor: pointer;
+}
+
+.detail-list {
+  display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(173,112,233, 1);
+  margin: 16px 16px 0 16px;
+  height: 90.6%;
 }
 
 .match-card {
-  display: inline-block;
+  position: relative;
+  background-color: white;
+  background-image: url("https://vignette.wikia.nocookie.net/fairytail/images/1/1a/X791_Natsu_profile.png/revision/latest/");
   background-position: center;
   background-size: cover;
-  margin: 12px 8px;
-  min-width: 50px;
-  min-height: 150px;
-  max-width: 100px;
-} */
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  height: 120px;
+  width: 90px;
+  transition: 0.3s;
+}
+
+.match-card:hover {
+  transform: scale(1.075);
+}
+
+.match-info {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 800;
+  height: auto;
+  width: 100%;
+}
