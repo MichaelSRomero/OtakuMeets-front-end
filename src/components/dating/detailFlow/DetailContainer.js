@@ -45,7 +45,7 @@ class DetailContainer extends React.Component {
 
           <div className="match-card">
             <div className="match-info">
-              <span>Wendy3000TheRare</span>
+              <span>Wendy3000</span>
             </div>
           </div>
         </div>
