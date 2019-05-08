@@ -1,8 +1,8 @@
 .character-container {
   background-color: #59C1F7;
-  background-image: url('../images/Fairy-tail-logo.png');
+  background-image: url('../images/pulse-background.gif');
   background-size: contain;
-  background-position: right;
+  background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
   font-family: 'Lato', sans-serif;
@@ -36,7 +36,7 @@
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   height: 100%;
 }
 

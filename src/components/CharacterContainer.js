@@ -60,7 +60,7 @@ class CharacterContainer extends React.Component {
                 <div
                   className="avatar"
                   style={
-                    {backgroundImage: `url("${this.props.character.avatars}")`}}>
+                    {backgroundImage: `url("${this.props.character.avatars[0]}")`}}>
                 </div>
               </div>
 

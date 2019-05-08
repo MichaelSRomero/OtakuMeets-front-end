@@ -8,8 +8,8 @@ const LogOut = (props) => {
   }
 
   return (
-    <div id="log-out">
-      <button onClick={handleClick}>Log Out</button>
+    <div className="log-out-header">
+      <div id="btn-log-out" onClick={handleClick}>Log Out</div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ class DetailContainer extends React.Component {
   }
 
   render() {
-    return (
+    return ( this.props.users.length > 0 &&
       <Grid className="detail-container" xs={4}>
         <div className="detail-list">
           {this.createMatchCards()}
