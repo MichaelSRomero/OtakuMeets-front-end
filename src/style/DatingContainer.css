@@ -18,8 +18,10 @@
 }
 
 .user-card {
+  position: relative;
   background-color: white;
   background-image: url("https://vignette.wikia.nocookie.net/fairytail/images/2/21/Lucy_mugshot.jpg/revision/latest/");
+  /* background-image: url("https://vignette.wikia.nocookie.net/naruto/images/b/ba/Sakurap2.png/revision/latest?cb=20170726101516"); */
   background-position: center;
   background-size: cover;
   border-radius: 6px;
@@ -33,8 +35,40 @@
   cursor: pointer;
 }
 
+.card-info {
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 6px 6px;
+  padding-left: 12px;
+  height: 100px;
+  width: 338px;
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.username {
+  color: rgba(255, 255, 255, 1);
+  font-size: 32px;
+  font-weight: 800;
+  padding-right: 8px;
+}
+
+.user-age {
+  color: rgba(255, 255, 255, 1);
+  font-size: 26px;
+}
+
+.personality {
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+}
+
 .gamepad {
-  /* background-color: blue; */
   display: flex;
   /* overflow: hidden; */
   margin: 0px auto;

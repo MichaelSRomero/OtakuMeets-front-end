@@ -32,6 +32,24 @@ class MasterContainer extends React.Component {
     return (
       <div className="master-container">
         <div className="user-card">
+
+          <div className="card-info">
+
+            <div className="info-header">
+              <div className="username">
+                <span>Liikemike</span>
+              </div>
+
+              <div className="user-age">
+                <span>27</span>
+              </div>
+            </div>
+
+            <div className="personality">
+              <span>ISFP</span>
+            </div>
+            
+          </div>
         </div>
 
         <div className="gamepad">
