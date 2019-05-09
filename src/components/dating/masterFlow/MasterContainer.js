@@ -8,6 +8,7 @@ import { getAllUsers } from '../../../actions/usersActions';
 import { createMatch } from '../../../actions/authActions';
 import nope from '../../../images/tinder-nope.png'
 import back from '../../../images/tinder-back.png'
+import backNull from '../../../images/tinder-back-null.png'
 import favorite from '../../../images/tinder-favorite.png'
 import like from '../../../images/tinder-like.png'
 import leftKey from '../../../images/key-left.png'
@@ -26,7 +27,8 @@ const noUsersStyle = {
 class MasterContainer extends React.Component {
 
   state = {
-    cardIndex: 0
+    cardIndex: 0,
+    pressedBack: false
   }
 
   componentDidMount() {
@@ -35,7 +37,7 @@ class MasterContainer extends React.Component {
   }
 
   areUsersLeft = () => {
-    return this.props.users.length - 1 > this.state.cardIndex
+    return this.props.users.length > this.state.cardIndex
   }
 
   onSwipe = (direction) => {
@@ -58,6 +60,29 @@ class MasterContainer extends React.Component {
     this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
   }
 
+  back = () => {
+    if (!this.state.pressedBack && this.state.cardIndex > 0) {
+      this.setState( (state) =>
+        ({
+          cardIndex: state.cardIndex - 1,
+          pressedBack: true
+        }))
+    }
+  }
+
+  next = () => {
+    this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
+  }
+
+  like = () => {
+    const loggedInUser = this.props.auth.id
+    const currentUser = this.props.users[this.state.cardIndex]
+
+    this.props.createMatch(loggedInUser, currentUser)
+    alert("Liked User")
+    this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
+  }
+
   render() {
 
     return ( this.props.users.length > 0 &&
@@ -76,10 +101,15 @@ class MasterContainer extends React.Component {
         }
 
         <div className="gamepad">
-          <GameIconSmall img={back}/>
-          <GameIconLarge img={nope}/>
+          {
+            this.state.cardIndex > 0 && !this.state.pressedBack ?
+            <GameIconSmall img={back} handleClick={this.back}/>
+            :
+            <GameIconSmall img={backNull} handleClick={this.back}/>
+          }
+          <GameIconLarge img={nope} handleClick={this.next}/>
           <GameIconSmall img={favorite}/>
-          <GameIconLarge img={like}/>
+          <GameIconLarge img={like} handleClick={this.like}/>
         </div>
 
         <div className="toolbar">
@@ -126,17 +156,3 @@ const mapStateToProps = ({ users, auth}) => {
 }
 
 export default connect(mapStateToProps, { getAllUsers, createMatch })(MasterContainer);
-
-// fetch("http://localhost:3000/matches", {
-// 	method: "POST",
-// 	headers: {
-// 		"Content-Type": "application/json",
-// 		"Accept": "application/json"
-// 	},
-// 	body: JSON.stringify({
-// 		"matcher_id": 2,
-// 		"matchee_id": 5
-// 	})
-// }).then(res => res.json()).then(obj => {
-// 	debugger
-// })

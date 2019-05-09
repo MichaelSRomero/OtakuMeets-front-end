@@ -192,7 +192,7 @@
 
 /* Only selected div gets highlighted */
 .list-header-text > span {
-  border-bottom: rgba(255, 0, 0, 0.8) solid 3px;
+  /* border-bottom: rgba(255, 0, 0, 0.8) solid 3px; */
   cursor: pointer;
 }
 
@@ -204,6 +204,37 @@
 /* background-color: rgba(173,112,233, 1); */
   margin: 16px 16px 0 16px;
   height: 90.6%;
+}
+
+.detail-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  margin: 16px 16px 0 16px;
+  height: 90.6%;
+}
+
+.empty-img {
+  height: 100px;
+  width: 150px;
+  background-image: url("../images/no-matches.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom: rgba(0, 0, 0, 0.5) solid 2px;
+  margin: 0 auto;
+}
+
+.empty-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.detail-list-empty > p {
+  margin: 0 auto;
 }
 
 .match-card {
