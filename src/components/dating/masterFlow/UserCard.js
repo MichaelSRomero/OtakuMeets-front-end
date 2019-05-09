@@ -1,83 +1,36 @@
 import React from 'react'
-import Swipeable from "react-swipy"
-import { connect } from 'react-redux';
 
 class UserCard extends React.Component {
 
-  state = {
-    index: 0
-  }
-
-  handleClick = () => {
-    if (this.state.index < this.props.users.length - 1) {
-      this.setState(state => ({index: state.index + 1}))
-    }
-  }
-
-  // shouldComponentUpdate(nextProps) {
-  //   // Only hit Render when length is different
-  //   return nextProps.users.length !== this.props.users.length || this.state.index > 0
-  // }
-
   render() {
-    const {index} = this.state
-    console.log("RENDER: ", this.props.users);
+    const {user} = this.props
+    let randomIndex;
+    user.character === null ? randomIndex = 0 : randomIndex = Math.floor(Math.random() * user.character["avatar_urls"].length)
 
     return (
-      <div className="user-card">
+      <div className="user-card" style={
+        {backgroundImage: `url("${user.character["avatar_urls"][randomIndex]}")`}
+      }>
         <div className="card-info">
 
           <div className="info-header">
             <div className="username">
-              <span>Liikemike</span>
+              <span>{user.username}</span>
             </div>
 
             <div className="user-age">
-              <span>27</span>
+              <span>{user.age}</span>
             </div>
           </div>
 
           <div className="personality">
-            <span>ISFP</span>
+            <span>{user.character["personality_type"]}</span>
           </div>
 
         </div>
       </div>
     )
-    // return (
-    //   <Card
-    //     className="user-card"
-    //     raised
-    //     style={
-    //       {backgroundImage: `url(${this.props.users.character.avatars[0]})`}
-    //     }
-    //   >
-    //   </Card>
-    // )
   }
 }
 
-const mapStateToProps = ({ users, auth}) => {
-  if (auth.preference === "Female") {
-    return {users: users.femaleUsers}
-  } else if (auth.preference === "Male") {
-    return {users: users.maleUsers}
-  } else {
-    return {users: users.allUsers}
-  }
-}
-
-export default connect(mapStateToProps)(UserCard);
-// export default UserCard;
-
-
-// this.props.users.length > 0 &&
-// <Card
-//   className="user-card"
-//   raised
-//   style={
-//     {backgroundImage: `url(${this.props.users[index].character.avatars[0]})`}
-//   }
-//   onClick={this.handleClick}>
-//   <h4>USERNAME: {this.props.users[index].username}</h4>
-// </Card>
+export default UserCard;

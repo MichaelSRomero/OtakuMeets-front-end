@@ -1,6 +1,4 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import GridList from '@material-ui/core/GridList';
 import MatchCard from './MatchCard';
 import { connect } from 'react-redux';
 

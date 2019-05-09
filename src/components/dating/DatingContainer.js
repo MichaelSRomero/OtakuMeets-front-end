@@ -1,5 +1,4 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import '../../style/DatingContainer.css'
 import { connect } from 'react-redux';
 import MasterContainer from './masterFlow/MasterContainer'

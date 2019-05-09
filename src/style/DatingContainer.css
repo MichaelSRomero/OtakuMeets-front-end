@@ -23,7 +23,7 @@
 .user-card {
   position: relative;
   background-color: white;
-  background-image: url("https://vignette.wikia.nocookie.net/fairytail/images/2/21/Lucy_mugshot.jpg/revision/latest/");
+  /* background-image: url("https://vignette.wikia.nocookie.net/fairytail/images/2/21/Lucy_mugshot.jpg/revision/latest/"); */
   /* background-image: url("https://vignette.wikia.nocookie.net/naruto/images/b/ba/Sakurap2.png/revision/latest?cb=20170726101516"); */
   background-position: center;
   background-size: cover;
