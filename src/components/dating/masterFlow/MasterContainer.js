@@ -5,6 +5,7 @@ import GameIconSmall from './GameIconSmall';
 import GameIconLarge from './GameIconLarge';
 import { connect } from 'react-redux';
 import { getAllUsers } from '../../../actions/usersActions';
+import { createMatch } from '../../../actions/authActions';
 import nope from '../../../images/tinder-nope.png'
 import back from '../../../images/tinder-back.png'
 import favorite from '../../../images/tinder-favorite.png'
@@ -43,6 +44,10 @@ class MasterContainer extends React.Component {
         alert("NEXT!")
         break
       case "right":
+        const loggedInUser = this.props.auth.id
+        const currentUser = this.props.users[this.state.cardIndex]
+
+        this.props.createMatch(loggedInUser, currentUser)
         alert("Liked User")
         break
       default:
@@ -120,4 +125,18 @@ const mapStateToProps = ({ users, auth}) => {
   // }
 }
 
-export default connect(mapStateToProps, { getAllUsers })(MasterContainer);
+export default connect(mapStateToProps, { getAllUsers, createMatch })(MasterContainer);
+
+// fetch("http://localhost:3000/matches", {
+// 	method: "POST",
+// 	headers: {
+// 		"Content-Type": "application/json",
+// 		"Accept": "application/json"
+// 	},
+// 	body: JSON.stringify({
+// 		"matcher_id": 2,
+// 		"matchee_id": 5
+// 	})
+// }).then(res => res.json()).then(obj => {
+// 	debugger
+// })

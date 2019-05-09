@@ -3,13 +3,21 @@ const initialState = {
   username: '',
   preference: '',
   token: '',
-  character: {}
+  character: {},
+  matches: []
 }
 
 const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case "ADD_CHARACTER":
       return {...state, character: action.payload}
+    case "ADD_NEW_MATCH":
+      let newMatches = [action.payload ,...state.matches]
+
+      return {
+        ...state,
+        matches: newMatches
+      }
     case 'SAVE_TOKEN':
       return {...state, token: action.payload}
     case 'SIGN_UP':
@@ -26,7 +34,8 @@ const authReducer = (state = initialState, action) => {
         id: existingUser.id ,
         username: existingUser.username,
         preference: existingUser.preference,
-        character: existingUser.character
+        character: existingUser.character,
+        matches: existingUser["confirmed_matches"]
       }
     case 'LOG_OUT':
       localStorage.clear()

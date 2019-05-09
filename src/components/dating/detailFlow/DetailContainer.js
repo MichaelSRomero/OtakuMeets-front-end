@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 class DetailContainer extends React.Component {
 
   createMatchCards = () => {
-    return this.props.users.map(user => <MatchCard key={user.id} user={user} />)
+    return this.props.matches.map(user => <MatchCard key={user.id} user={user} />)
   }
 
   render() {
+
     return (
       <div className="detail-container">
 
@@ -31,8 +32,8 @@ class DetailContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ users }) => {
-  return {users: users.allUsers}
+const mapStateToProps = ({ auth }) => {
+  return {matches: auth.matches}
 }
 
 export default connect(mapStateToProps)(DetailContainer);

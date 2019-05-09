@@ -4,6 +4,7 @@
 const createUser = (newUser) => ({type: 'SIGN_UP', payload: newUser})
 const logInUser = (existingUser) => ({type: 'LOG_IN', payload: existingUser})
 const addCharacter = (character) => ({type: 'ADD_CHARACTER', payload: character})
+const addNewMatch = (user) => ({type: 'ADD_NEW_MATCH', payload: user})
 export const logOutUser = () => ({type: 'LOG_OUT'})
 export const saveToken = (token) => ({type: 'SAVE_TOKEN', payload: token})
 
@@ -72,7 +73,7 @@ export const addCharacterToUser = (userID, personalityType) => {
       .then(updatedUser => {
         const character = updatedUser.character
         const randomIndex = Math.floor(Math.random() * character["avatar_urls"].length)
-        
+
         dispatch(addCharacter(
           {
             ...character,
@@ -80,5 +81,27 @@ export const addCharacterToUser = (userID, personalityType) => {
           }
         ))
       })
+  }
+}
+
+export const createMatch = (currentUserID, user) => {
+  return (dispatch) => {
+    return fetch("http://localhost:3000/matches", {
+    	method: "POST",
+    	headers: {
+    		"Content-Type": "application/json",
+    		"Accept": "application/json"
+    	},
+    	body: JSON.stringify({
+    		"matcher_id": currentUserID,
+    		"matchee_id": user.id
+    	})
+    }).then(res => res.json())
+      .then(matchObj => {
+         if (matchObj["mutual_match"]) {
+           dispatch(addNewMatch(user))
+         }
+
+       })
   }
 }
