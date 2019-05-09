@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class DetailContainer extends React.Component {
 
   createMatchCards = () => {
-    return this.props.users.map(user => <MatchCard user={user} />)
+    return this.props.users.map(user => <MatchCard key={user.id} user={user} />)
   }
 
   render() {
@@ -23,29 +23,7 @@ class DetailContainer extends React.Component {
         </div>
 
         <div className="detail-list">
-          <div className="match-card">
-            <div className="match-info">
-              <span>Wendy3000TheRare</span>
-            </div>
-          </div>
-
-          <div className="match-card">
-            <div className="match-info">
-              <span>Wendy3000TheRare</span>
-            </div>
-          </div>
-
-          <div className="match-card">
-            <div className="match-info">
-              <span>Wendy3000TheRare</span>
-            </div>
-          </div>
-
-          <div className="match-card">
-            <div className="match-info">
-              <span>Wendy3000</span>
-            </div>
-          </div>
+          {this.createMatchCards()}
         </div>
 
       </div>
