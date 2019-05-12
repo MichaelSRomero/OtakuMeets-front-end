@@ -78,9 +78,12 @@ class MasterContainer extends React.Component {
     const loggedInUser = this.props.auth.id
     const currentUser = this.props.users[this.state.cardIndex]
 
-    this.props.createMatch(loggedInUser, currentUser)
-    alert("Liked User")
-    this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
+    if (this.areUsersLeft) {
+      this.props.createMatch(loggedInUser, currentUser)
+      alert("Liked User")
+      this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
+      
+    }
   }
 
   render() {
@@ -145,14 +148,14 @@ class MasterContainer extends React.Component {
 }
 
 const mapStateToProps = ({ users, auth}) => {
-  return {users: users.allUsers, auth: auth}
-  // if (auth.preference === "Female") {
-  //   return {users: users.femaleUsers, auth: auth}
-  // } else if (auth.preference === "Male") {
-  //   return {users: users.maleUsers, auth: auth}
-  // } else {
-  //   return {users: users.allUsers, auth: auth}
-  // }
+  // return {users: users.allUsers, auth: auth}
+  if (auth.preference === "Female") {
+    return {users: users.femaleUsers, auth: auth}
+  } else if (auth.preference === "Male") {
+    return {users: users.maleUsers, auth: auth}
+  } else {
+    return {users: users.allUsers, auth: auth}
+  }
 }
 
 export default connect(mapStateToProps, { getAllUsers, createMatch })(MasterContainer);

@@ -1,7 +1,7 @@
 const initialState = {
   allUsers: [],
   maleUsers: [],
-  femaleUsers: []
+  femaleUsers: [],
 }
 
 const usersReducer = (state = initialState, action) => {

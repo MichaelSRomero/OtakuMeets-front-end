@@ -4,23 +4,27 @@
 const addUsers = (users) => ({type: 'ADD_USERS', payload: users})
 const addMaleUsers = (males) => ({type: 'ADD_MALE_USERS', payload: males})
 const addFemaleUsers = (females) => ({type: 'ADD_FEMALE_USERS', payload: females})
+const addUsersEmpty = (boolean) => ({type: 'USERS_EMPTY', payload: boolean})
 
 /////////////////////////////////////////
 //___________THUNK CREATORS____________//
 /////////////////////////////////////////
 export const getAllUsers = (currentUserID) => {
   return (dispatch) => {
-    return fetch('http://localhost:3000/users')
+    return fetch(`http://localhost:3000/other/${currentUserID}`)
       .then(res => res.json())
       .then(usersJSON => {
         // Pesimistically Update later
+        // const users = usersJSON.users
         const otherUsers = filterOtherUsers(usersJSON, currentUserID)
+
         const maleUsers = filterUsersByGender(otherUsers, "male")
         const femaleUsers = filterUsersByGender(otherUsers, "female")
 
         dispatch(addUsers(otherUsers))
         dispatch(addMaleUsers(maleUsers))
         dispatch(addFemaleUsers(femaleUsers))
+        // dispatch(addUsersEmpty(usersJSON.empty))
       });
   }
 }

@@ -9,7 +9,7 @@ class DatingContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        { localStorage ?
+        { this.props.token ?
           <div className="dating-container">
             <DetailContainer />
             <MasterContainer />

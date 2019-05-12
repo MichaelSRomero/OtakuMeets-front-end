@@ -79,10 +79,12 @@ class QuizContainer extends React.Component {
 
     if (e.target.className === "answer-box") {
       value = e.target.querySelector('input').value
-    } else if (e.target.tagName === "P") {
+    } else if (e.target.tagName === "P" || e.target.className === "answer-content") {
       value = e.target.parentElement.parentElement.querySelector('input').value
     } else if (e.target.className === "answer-checkbox") {
       value = e.target.querySelector('input').value
+    } else {
+      value = e.target.value
     }
 
     this.setState({
@@ -122,7 +124,7 @@ class QuizContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.auth.token ?
+        {localStorage ?
           <div className="quiz-container">
             <div className="quiz-top-background">
             </div>

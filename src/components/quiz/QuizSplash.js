@@ -17,7 +17,7 @@ class QuizSplash extends React.Component {
           If User is logged in, render this page
           Else redirect to HOME page
         **************************************/}
-        {this.props.token ?
+        {localStorage ?
           <div className="quiz-splash-container">
             <div className="quiz-top-background">
             </div>
