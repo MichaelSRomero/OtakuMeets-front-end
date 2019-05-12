@@ -1,6 +1,7 @@
 const initialState = {
   id: '',
   username: '',
+  gender: '',
   preference: '',
   token: '',
   character: {},
@@ -23,9 +24,10 @@ const authReducer = (state = initialState, action) => {
     case 'SIGN_UP':
       const userID = action.payload.user.id
       const username = action.payload.user.username
+      const gender = action.payload.user.gender
       const preference = action.payload.user.preference
 
-      return {...state, id: userID, username: username, preference: preference}
+      return {...state, id: userID, username: username, gender: gender, preference: preference}
     case 'LOG_IN':
       const existingUser = action.payload
 

@@ -60,15 +60,15 @@ export const logIn = (userObj, push) => {
   }
 }
 
-export const addCharacterToUser = (userID, personalityType) => {
+export const addCharacterToUser = (user, personalityType) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/users/${userID}`, {
+    return fetch(`http://localhost:3000/users/${user.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({"personality": personalityType})
+      body: JSON.stringify({"personality": personalityType, "gender": user.gender})
     }).then(res => res.json())
       .then(updatedUser => {
         const character = updatedUser.character

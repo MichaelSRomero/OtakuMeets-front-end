@@ -28,7 +28,6 @@ class SignUp extends React.Component {
 
   handleSignUp = (e) => {
     e.preventDefault();
-    console.log(`New User: ${this.state.username} has Signed Up`)
     this.props.signUp(this.state, this.props.history.push)
   }
 

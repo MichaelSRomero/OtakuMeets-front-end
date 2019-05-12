@@ -101,7 +101,6 @@ class CharacterContainer extends React.Component {
 }
 
 const mapStateToProps = ({auth, quiz}) => {
-  console.log(quiz);
   return {character: auth.character, token: auth.token, traits: quiz}
 }
 
