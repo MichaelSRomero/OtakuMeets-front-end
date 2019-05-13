@@ -1,6 +1,6 @@
-# Otaku Meets (Front-End)
 <h1 align="center">
-  <a href="https://github.com/amitmerchant1990/pomolectron"><img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/luvdiscLogo-font.png" alt="Otaku Meets" width="400"></a>
+  <a href="https://github.com/MichaelSRomero/Waifu-front-end"><img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/luvdiscLogo-font.png" alt="Otaku Meets" width="400"></a>
+  <br>
 </h1>
 
 Otaku Meets is a blind-dating website for Anime enthusiasts. It is designed to help users communicate with each other based on their personality type by using the [**Myers Briggs Type Indicator**](https://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/home.htm?bhcp=1). For example: you wouldn't want to approach an introvert with extroverted scenarios. Instead you would ease them in slowly and not come on too strong.
