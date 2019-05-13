@@ -28,7 +28,10 @@ After you have followed API installation guide ([*Located Here*](https://github.
 npm install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+<h1 align="center">
+  <a href="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400"></a>
+  <br>
+</h1>
 
 ## Built With
 
