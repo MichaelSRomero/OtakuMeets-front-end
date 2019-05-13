@@ -84,7 +84,6 @@ class MasterContainer extends React.Component {
       this.props.createMatch(loggedInUser, currentUser)
       alert("Liked User")
       this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
-
     }
   }
 
