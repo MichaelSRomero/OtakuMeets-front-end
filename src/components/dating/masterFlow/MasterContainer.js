@@ -71,18 +71,20 @@ class MasterContainer extends React.Component {
   }
 
   next = () => {
-    this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
+    if (this.areUsersLeft()) {
+      this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
+    }
   }
 
   like = () => {
     const loggedInUser = this.props.auth.id
     const currentUser = this.props.users[this.state.cardIndex]
 
-    if (this.areUsersLeft) {
+    if (this.areUsersLeft()) {
       this.props.createMatch(loggedInUser, currentUser)
       alert("Liked User")
       this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
-      
+
     }
   }
 
