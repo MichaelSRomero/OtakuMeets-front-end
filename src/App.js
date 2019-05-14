@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import Header from './components/Header'
 import Home from './components/Home'
 import LogIn from './components/LogIn'
-import SignUp from './components/SignUp'
+import SignUp from './components/signup/SignUp'
 import QuizSplash from './components/quiz/QuizSplash'
 import QuizContainer from './components/quiz/QuizContainer'
-import CharacterContainer from './components/CharacterContainer'
+import CharacterContainer from './components/character/CharacterContainer'
 import DatingContainer from './components/dating/DatingContainer'
 
 class App extends React.Component {

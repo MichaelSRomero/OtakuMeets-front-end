@@ -32,7 +32,7 @@ class MasterContainer extends React.Component {
   }
 
   componentDidMount() {
-    const userID = this.props.auth.id
+    const userID = this.props.id
     this.props.getAllUsers(userID)
   }
 
@@ -46,7 +46,7 @@ class MasterContainer extends React.Component {
         alert("NEXT!")
         break
       case "right":
-        const loggedInUser = this.props.auth.id
+        const loggedInUser = this.props.id
         const currentUser = this.props.users[this.state.cardIndex]
 
         this.props.createMatch(loggedInUser, currentUser)
@@ -77,7 +77,7 @@ class MasterContainer extends React.Component {
   }
 
   like = () => {
-    const loggedInUser = this.props.auth.id
+    const loggedInUser = this.props.id
     const currentUser = this.props.users[this.state.cardIndex]
 
     if (this.areUsersLeft()) {
@@ -91,6 +91,7 @@ class MasterContainer extends React.Component {
 
     return ( this.props.users.length > 0 &&
       <div className="master-container">
+        {/* Only allow swiping if there are still users to swipe to*/}
         {this.areUsersLeft() ?
           <div className="">
             <Swipeable
@@ -103,19 +104,33 @@ class MasterContainer extends React.Component {
             <span>There's no one new around you.</span>
           </div>
         }
-
+        {/**********************************
+        ______________GAMEPAD______________
+        **********************************/}
         <div className="gamepad">
+          {/* Render "back-icon" colored if it hasn't been clicked and it's not the beginning of the list
+          else render the grey colored image */}
           {
             this.state.cardIndex > 0 && !this.state.pressedBack ?
-            <GameIconSmall img={back} handleClick={this.back}/>
+            <GameIconSmall
+              img={back}
+              handleClick={this.back}/>
             :
-            <GameIconSmall img={backNull} handleClick={this.back}/>
+            <GameIconSmall
+              img={backNull}
+              handleClick={this.back}/>
           }
-          <GameIconLarge img={nope} handleClick={this.next}/>
+          <GameIconLarge
+            img={nope}
+            handleClick={this.next}/>
           <GameIconSmall img={favorite}/>
-          <GameIconLarge img={like} handleClick={this.like}/>
+          <GameIconLarge
+            img={like}
+            handleClick={this.like}/>
         </div>
-
+        {/**********************************
+        ______________TOOLBAR______________
+        **********************************/}
         <div className="toolbar">
           <div className="toolbar-icons">
             <img src={leftKey} alt="toolbar icon"/>
@@ -151,11 +166,11 @@ class MasterContainer extends React.Component {
 const mapStateToProps = ({ users, auth}) => {
   // return {users: users.allUsers, auth: auth}
   if (auth.preference === "Female") {
-    return {users: users.femaleUsers, auth: auth}
+    return {users: users.femaleUsers, id: auth.id}
   } else if (auth.preference === "Male") {
-    return {users: users.maleUsers, auth: auth}
+    return {users: users.maleUsers, id: auth.id}
   } else {
-    return {users: users.allUsers, auth: auth}
+    return {users: users.allUsers, id: auth.id}
   }
 }
 

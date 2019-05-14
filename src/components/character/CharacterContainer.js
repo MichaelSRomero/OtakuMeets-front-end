@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Personality from './Personality'
-import '../style/characterContainer.css'
+import '../../style/characterContainer.css'
 
 class CharacterContainer extends React.Component {
 

@@ -74,6 +74,8 @@ class QuizContainer extends React.Component {
     }
   }
 
+  // upon click on DIV, fills the currently clicked radio button up
+  // and sets state
   handleClick = (e, index) => {
     let value;
 
@@ -97,7 +99,7 @@ class QuizContainer extends React.Component {
     this.setState({traitChoice: e.target.value.toLowerCase()})
   }
 
-  // returns a Personality
+  // returns a Personality Type
   // EX: "ESFP"
   findPersonality = () => {
     const traits = this.props.traitPoints
@@ -124,7 +126,7 @@ class QuizContainer extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {localStorage ?
+        {this.props.auth.token ?
           <div className="quiz-container">
             <div className="quiz-top-background">
             </div>

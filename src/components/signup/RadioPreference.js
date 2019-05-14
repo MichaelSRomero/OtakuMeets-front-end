@@ -4,9 +4,11 @@ class RadioPreference extends React.Component {
   render() {
     return (
       <div className="radio-container">
+
         <div className="preference-name">
           <span>{this.props.preferenceValue.title}</span>
         </div>
+
         <div className="preference-radio">
           <input
             type="radio"
@@ -15,6 +17,7 @@ class RadioPreference extends React.Component {
             onChange={this.props.handleChange}>
           </input>
         </div>
+        
       </div>
     )
   }

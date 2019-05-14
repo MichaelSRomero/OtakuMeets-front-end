@@ -1,9 +1,9 @@
 import React from 'react';
 import RadioGender from './RadioGender'
 import RadioPreference from './RadioPreference'
-import { signUp } from '../actions/authActions'
+import { signUp } from '../../actions/authActions'
 import { connect } from 'react-redux';
-import '../style/signup.css'
+import '../../style/signup.css'
 
 const genders = [
   {title: "Man", gender: "Male"},
