@@ -31,7 +31,7 @@ npm install
 ## Demo
 <h1 align="center">
   <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
-  
+
   <img src="https://media.giphy.com/media/69BZCyph1rYvN5PADn/giphy.gif" alt="Otaku Meets" width="400" style="display: inline-block;">
   <br>
 </h1>
@@ -42,6 +42,7 @@ npm install
 * [Redux](https://redux.js.org/) - State Management Tool
 * [Ruby on Rails](https://rubyonrails.org/) - API Back-End
 * [React-Swipey](https://www.npmjs.com/package/react-swipy) - Tinder like Swipe
+* [Personality Database](https://www.personality-database.com/category/8/Anime/mbti-personality-type) - Anime Personality Database
 * [Myers Briggs Type Indicator](https://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/home.htm?bhcp=1) - Personality Types
 
 
