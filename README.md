@@ -29,10 +29,7 @@ npm install
 ```
 
 ## Landing Page
-<h1 align="center">
   <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
-  <br>
-</h1>
 
 ## Character Generator
 <div align="center">
