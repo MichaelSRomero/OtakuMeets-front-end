@@ -28,9 +28,9 @@ After you have followed API installation guide ([*Located Here*](https://github.
 npm install
 ```
 
-## Landing Page
-  <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
-  <img src="https://media.giphy.com/media/69BZCyph1rYvN5PADn/giphy.gif" alt="Otaku Meets" width="400">
+## Demo
+  <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400" style="display: inline-block;">
+  <img src="https://media.giphy.com/media/69BZCyph1rYvN5PADn/giphy.gif" alt="Otaku Meets" width="400" style="display: inline-block;">
 
 ## Built With
 
