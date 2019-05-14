@@ -32,7 +32,7 @@ npm install
   <img src="https://github.com/MichaelSRomero/Waifu-front-end/blob/master/src/images/om-screenshot.png" alt="Otaku Meets" width="400">
 
 ## Character Generator
-![](https://media.giphy.com/media/69BZCyph1rYvN5PADn/giphy.gif)
+  <img src="https://media.giphy.com/media/69BZCyph1rYvN5PADn/giphy.gif" alt="Otaku Meets" width="400">
 
 ## Built With
 
