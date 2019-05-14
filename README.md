@@ -34,6 +34,8 @@ npm install
   <br>
 </h1>
 
+<div style="width:100%;height:0;padding-bottom:74%;position:relative;"><iframe src="https://giphy.com/embed/69BZCyph1rYvN5PADn" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/69BZCyph1rYvN5PADn"></a></p>
+
 ## Built With
 
 * [React JS](https://reactjs.org/) - The web framework used
