@@ -271,3 +271,67 @@
   height: auto;
   width: 95%;
 }
+
+.detail-list-messages {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+/* background-color: rgba(173,112,233, 1); */
+  margin-right: 5px;
+  height: 90.6%;
+}
+
+.message-card {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.175s;
+}
+
+.message-card:hover {
+  box-shadow:0 1px 5px 0 hsla(0,0%,42.7%,.56);
+  border-right: rgba(255, 0, 0, 0.8) solid 5px;
+}
+
+.outer-user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: purple; */
+  height: 100px;
+  width: 40%;
+}
+
+.user-avatar {
+  background-image: url("https://vignette.wikia.nocookie.net/bleach/images/c/c4/Ep40ByakuyaKuchiki.png/revision/latest/?cb=20140813230719&path-prefix=en");
+  background-position: center;
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.message-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 60%;
+}
+
+.info-username {
+  color: #424242;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.info-last-message {
+  color: #7C7C7C;
+  font-size: 14px;
+  margin-top: 0px;
+  text-overflow: ellipsis;
+}

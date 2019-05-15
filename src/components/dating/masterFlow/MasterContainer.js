@@ -33,7 +33,7 @@ class MasterContainer extends React.Component {
 
   componentDidMount() {
     const userID = this.props.id
-    this.props.getAllUsers(userID)
+    // this.props.getAllUsers(userID)
   }
 
   areUsersLeft = () => {
@@ -164,7 +164,7 @@ class MasterContainer extends React.Component {
 }
 
 const mapStateToProps = ({ users, auth}) => {
-  // return {users: users.allUsers, auth: auth}
+  // return {users: users.allUsers, id: auth.id}
   if (auth.preference === "Female") {
     return {users: users.femaleUsers, id: auth.id}
   } else if (auth.preference === "Male") {

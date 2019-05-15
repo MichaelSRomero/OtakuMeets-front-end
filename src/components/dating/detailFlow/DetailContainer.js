@@ -1,5 +1,7 @@
 import React from 'react';
 import MatchCard from './MatchCard';
+import MatchList from './MatchList';
+import MessageList from './MessageList';
 import { connect } from 'react-redux';
 
 const style = {
@@ -10,10 +12,6 @@ class DetailContainer extends React.Component {
 
   state = {
     currentHeader: "Matches"
-  }
-
-  createMatchCards = () => {
-    return this.props.matches.map(user => <MatchCard key={user.id} user={user} />)
   }
 
   handleClick = (e) => {
@@ -39,12 +37,13 @@ class DetailContainer extends React.Component {
             <span onClick={this.handleClick}>Messages</span>
           </div>
         </div>
-
+        {/* RENDER MESSAGES OR MATCHES BASED ON THE CURRENTHEADER CLICKED */}
         {
-          this.props.matches.length > 0 ?
-          <div className="detail-list">
-            {this.createMatchCards()}
-          </div>
+          this.props.matches ?
+          this.state.currentHeader === "Matches" ?
+            <MatchList />
+          :
+            <MessageList />
           :
           <div className="detail-list-empty">
             <div className="empty-img">
@@ -65,10 +64,4 @@ const mapStateToProps = ({ auth }) => {
 
 export default connect(mapStateToProps)(DetailContainer);
 
-
-// return ( this.props.users.length > 0 &&
-  {/*<Grid className="detail-container" xs={4}>
-    <div className="detail-list">
-      {this.createMatchCards()}
-    </div>
-  </Grid>*/}
+// this.props.matches.length > 0
