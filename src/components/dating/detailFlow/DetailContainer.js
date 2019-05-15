@@ -39,9 +39,9 @@ class DetailContainer extends React.Component {
         </div>
         {/* RENDER MESSAGES OR MATCHES BASED ON THE CURRENTHEADER CLICKED */}
         {
-          this.props.matches ?
+          this.props.matches.length > 0 ?
           this.state.currentHeader === "Matches" ?
-            <MatchList />
+            <MatchList matches={this.props.matches}/>
           :
             <MessageList />
           :

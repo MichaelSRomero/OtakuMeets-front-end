@@ -168,7 +168,7 @@
 /**************************************/
 .detail-container {
   display: inline-block;
-  /* overflow: auto; */
+  overflow: auto;
   /* background-color: rgba(153,102,153, 0.8); */
   border-right: rgb(229, 233, 236) solid 1px;
   height: 100%;
@@ -177,7 +177,8 @@
 
 .list-header {
   display: flex;
-/* background-color: rgba(153,102,153, 0.7); */
+  /* position: fixed; */
+  background-color: white;
   color: #424242;
   font-size: 15px;
   font-weight: 800;

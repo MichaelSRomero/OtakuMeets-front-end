@@ -10,7 +10,7 @@ class MatchList extends React.Component {
   render() {
     return (
       <div className="detail-list">
-        {/*this.createMatchCards()*/}
+        {this.createMatchCards()}
       </div>
     )
   }

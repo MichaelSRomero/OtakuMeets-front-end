@@ -4,29 +4,11 @@ import MessageCard from './MessageCard';
 
 class MessageList extends React.Component {
   createMessageCards = () => {
-    return this.props.matches.map(user => <MessageCard key={user.id} user={user} />)
-  }
+    // return this.props.matches.map(user => <MessageCard key={user.id} user={user} />)
+    let arr = []
 
-  render() {
-    return (
-      <div className="detail-list-messages">
-        {/*this.createMessageCards()*/}
-
-        <div className="message-card">
-          <div className="outer-user-avatar">
-            <div className="user-avatar"></div>
-          </div>
-
-          <div className="message-info">
-            <p className="info-username">
-              Liikemike
-            </p>
-            <p className="info-last-message">
-              What are you doing today? I guess nothing right?
-            </p>
-          </div>
-        </div>
-
+    for (var i = 0; i < 8; i++) {
+      arr.push(
         <div className="message-card">
           <div className="outer-user-avatar">
             <div className="user-avatar"></div>
@@ -41,6 +23,16 @@ class MessageList extends React.Component {
             </p>
           </div>
         </div>
+      )
+    }
+
+    return arr;
+  }
+
+  render() {
+    return (
+      <div className="detail-list-messages">
+        {this.createMessageCards()}
 
       </div>
     )
