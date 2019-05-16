@@ -43,7 +43,6 @@ class MasterContainer extends React.Component {
   onSwipe = (direction) => {
     switch(direction) {
       case "left":
-        alert("NEXT!")
         break
       case "right":
         const loggedInUser = this.props.id

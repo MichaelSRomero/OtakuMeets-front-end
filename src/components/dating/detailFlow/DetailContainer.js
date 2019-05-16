@@ -41,7 +41,7 @@ class DetailContainer extends React.Component {
         {
           this.props.matches.length > 0 ?
           this.state.currentHeader === "Matches" ?
-            <MatchList matches={this.props.matches}/>
+            <MatchList matches={this.props.matches} handleClick={this.props.handleClick}/>
           :
             <MessageList />
           :

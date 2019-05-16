@@ -10,7 +10,8 @@ class MatchCard extends React.Component {
         className="match-card"
         style={
           {backgroundImage: `url("${user.character["avatar_urls"][0]}")`}
-        }>
+        }
+        onClick={() => this.props.handleClick(user)}>
         <div className="match-info">
           <span>{user.username}</span>
         </div>

@@ -336,3 +336,112 @@
   margin-top: 0px;
   text-overflow: ellipsis;
 }
+
+/**************************************/
+/*////// CONVERSATION-CONTAINER //////*/
+/**************************************/
+.conversation-container {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(245, 247, 250);
+  height: 700px;
+  width: 70%;
+}
+
+.conversation {
+  background-color: white;
+  height: 100%;
+  width: 60%;
+}
+
+.profile {
+  background-color: blue;
+  height: 100%;
+  width: 40%;
+}
+
+.chat-nav-bar {
+  display: flex;
+  align-items: center;
+  /* background-color: red; */
+  border-bottom: #E8E8E8 solid 1px;
+  color: #9B9B9B;
+  height: 99px;
+  width: 100%;
+}
+
+.chat-nav-avatar {
+  background-image: url("https://vignette.wikia.nocookie.net/bleach/images/f/f0/Ep37NanaoProfile.png/revision/latest/?cb=20190118043144&path-prefix=en");
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.27);
+  margin: 0 20px;
+  height: 44px;
+  width: 44px;
+}
+
+.chat-nav-bar > img {
+  
+  height: 30px;
+  width: 30px;
+}
+
+.chat-box {
+  /* background-color: yellow; */
+  height: 527px;
+  width: 100%;
+}
+
+.message-bar {
+  /* background-color: yellow; */
+  height: 72px;
+  width: 100%;
+}
+
+.message-bar {
+  display: flex;
+  flex-direction: row;
+  border-top: #E8E8E8 solid 1px;
+}
+
+.unmatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(245, 247, 250);
+  border-right: #E8E8E8 solid 1px;
+  color: #9B9B9B;
+  font-size: 14px;
+  font-weight: 600;
+  width: 25%;
+}
+
+.unmatch:hover {
+  background-color: rgba(224, 138, 166, 1);
+  color: white;
+}
+
+.message-bar > input {
+  border: none;
+  font-size: 14px;
+  width: 50%;
+}
+
+.message-bar > input:focus {
+  outline: none;
+}
+
+.submit-message {
+  align-self: center;
+  background-color: rgba(224, 138, 166, 1);
+  border-radius: 45px;
+  color: white;
+  line-height: 40px;
+  margin: 0 auto;
+  text-align: center;
+  height: 40px;
+  width: 90px;
+}

@@ -4,7 +4,10 @@ import MatchCard from './MatchCard';
 
 class MatchList extends React.Component {
   createMatchCards = () => {
-    return this.props.matches.map(user => <MatchCard key={user.id} user={user} />)
+    return this.props.matches.map(user => <MatchCard
+        key={user.id}
+        user={user}
+        handleClick={this.props.handleClick}/>)
   }
 
   render() {
