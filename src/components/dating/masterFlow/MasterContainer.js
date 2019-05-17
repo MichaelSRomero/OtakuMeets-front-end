@@ -49,7 +49,6 @@ class MasterContainer extends React.Component {
         const currentUser = this.props.users[this.state.cardIndex]
 
         this.props.createMatch(loggedInUser, currentUser)
-        alert("Liked User")
         break
       default:
         console.log("...")

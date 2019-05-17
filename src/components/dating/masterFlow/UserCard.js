@@ -24,7 +24,7 @@ class UserCard extends React.Component {
           </div>
 
           <div className="personality">
-            <span>{user.character["personality_type"]}</span>
+            <span>{user.character["personality"]}</span>
           </div>
 
         </div>

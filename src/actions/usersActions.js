@@ -15,7 +15,6 @@ export const getAllUsers = (currentUserID) => {
       .then(res => res.json())
       .then(usersJSON => {
         // Pesimistically Update later
-        // const users = usersJSON.users
         const otherUsers = filterOtherUsers(usersJSON, currentUserID)
 
         const maleUsers = filterUsersByGender(otherUsers, "male")
@@ -24,7 +23,6 @@ export const getAllUsers = (currentUserID) => {
         dispatch(addUsers(otherUsers))
         dispatch(addMaleUsers(maleUsers))
         dispatch(addFemaleUsers(femaleUsers))
-        // dispatch(addUsersEmpty(usersJSON.empty))
       });
   }
 }
