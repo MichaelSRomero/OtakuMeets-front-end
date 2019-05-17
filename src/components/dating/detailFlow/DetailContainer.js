@@ -14,7 +14,7 @@ class DetailContainer extends React.Component {
     currentHeader: "Matches"
   }
 
-  handleClick = (e) => {
+  changeHeaderOnClick = (e) => {
     const header = e.target.innerText
     this.setState({currentHeader: header})
   }
@@ -28,13 +28,13 @@ class DetailContainer extends React.Component {
           <div
             className="list-header-text"
             style={this.state.currentHeader === "Matches" ? style : null}>
-            <span onClick={this.handleClick}>Matches</span>
+            <span onClick={this.changeHeaderOnClick}>Matches</span>
           </div>
 
           <div
             className="list-header-text"
             style={this.state.currentHeader === "Messages" ? style : null}>
-            <span onClick={this.handleClick}>Messages</span>
+            <span onClick={this.changeHeaderOnClick}>Messages</span>
           </div>
         </div>
         {/* RENDER MESSAGES OR MATCHES BASED ON THE CURRENTHEADER CLICKED */}

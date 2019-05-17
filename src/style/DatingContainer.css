@@ -367,9 +367,9 @@
 }
 
 .chat-nav-avatar {
-  background-image: url("https://vignette.wikia.nocookie.net/bleach/images/f/f0/Ep37NanaoProfile.png/revision/latest/?cb=20190118043144&path-prefix=en");
+  /* background-image: url("https://vignette.wikia.nocookie.net/bleach/images/f/f0/Ep37NanaoProfile.png/revision/latest/?cb=20190118043144&path-prefix=en"); */
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.27);
@@ -430,6 +430,7 @@
 .message-bar > input {
   border: none;
   font-size: 14px;
+  padding-left: 8px;
   width: 50%;
 }
 

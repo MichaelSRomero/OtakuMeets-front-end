@@ -8,7 +8,7 @@ import DetailContainer from './detailFlow/DetailContainer'
 class DatingContainer extends React.Component {
 
   state = {
-    currentClicked: {}
+    currentClicked: {},
   }
 
   handleClick = (user) => {
@@ -29,7 +29,10 @@ class DatingContainer extends React.Component {
           <div className="dating-container">
             <DetailContainer handleClick={this.handleClick}/>
             { Object.keys(this.state.currentClicked).length > 0 ?
-              <ConversationContainer exitProfileOnClick={this.exitProfileOnClick}/>
+              <ConversationContainer
+                exitProfileOnClick={this.exitProfileOnClick}
+                user={this.state.currentClicked}
+              />
               :
               <MasterContainer />
             }

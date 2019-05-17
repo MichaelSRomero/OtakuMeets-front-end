@@ -10,6 +10,8 @@ import jpIcon from '../../../images/jp-icon.png'
 class ConversationContainer extends React.Component {
 
   render() {
+    const { user } = this.props
+
     return (
       <div className="conversation-container">
         {/***********************************
@@ -18,10 +20,12 @@ class ConversationContainer extends React.Component {
         <div className="conversation">
 
           <div className="chat-nav-bar">
-            <div className="chat-nav-avatar">
+            <div
+              className="chat-nav-avatar"
+              style={{backgroundImage: `url("${user.character['avatar_urls'][user.avatarIndex]}")`}}>
             </div>
 
-            <p>You matched with KaleMuffin</p>
+            <p>You matched with {user.username}</p>
 
             <img
               onClick={this.props.exitProfileOnClick}
@@ -51,12 +55,15 @@ class ConversationContainer extends React.Component {
           ______________PROFILE______________
           **********************************/}
         <div className="profile">
-          <div className="profile-avatar"></div>
+          <div
+            className="profile-avatar"
+            style={{backgroundImage: `url("${user.character['avatar_urls'][user.avatarIndex]}")`}}>
+          </div>
 
           <div className="profile-header-tab">
             <div className="profile-header">
-              <span>GloriaRain</span>
-              <span>26</span>
+              <span>{user.username}</span>
+              <span>{user.age}</span>
             </div>
 
             <div className="profile-sub-header">
@@ -65,7 +72,7 @@ class ConversationContainer extends React.Component {
                   src={personalityIcon}
                   alt="Personality Icon"
                 />
-                <span>ESTP</span>
+                <span>{user.character.personality}</span>
               </div>
 
               <div className="sub-row">
@@ -73,7 +80,7 @@ class ConversationContainer extends React.Component {
                   src={genderIcon}
                   alt="Gender Icon"
                   />
-                <span>Male</span>
+                <span>{user.gender}</span>
               </div>
 
             </div>
@@ -86,7 +93,7 @@ class ConversationContainer extends React.Component {
                 src={enIcon}
                 alt="English Name Icon"
               />
-              <span>Erza Scarlet</span>
+              <span>{user.character['english_name']}</span>
             </div>
 
             <div className="character-row">
@@ -94,7 +101,7 @@ class ConversationContainer extends React.Component {
                 src={jpIcon}
                 alt="Japanese Name Icon"
               />
-              <span>エルザ・スカーレット</span>
+              <span>{user.character['japanese_name']}</span>
             </div>
 
             <div className="character-row">
@@ -103,7 +110,7 @@ class ConversationContainer extends React.Component {
                 src={aliasIcon}
                 alt="Alias Icon"
               />
-              <span>Titania</span>
+              <span>{user.character.alias}</span>
             </div>
 
             <div className="character-row">
@@ -112,7 +119,7 @@ class ConversationContainer extends React.Component {
                 src={showIcon}
                 alt="Show Icon"
               />
-              <span>Fairy Tail</span>
+              <span>{user.character.show}</span>
             </div>
           </div>
 
