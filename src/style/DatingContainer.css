@@ -363,6 +363,7 @@
 
 .chat-nav-bar {
   display: flex;
+  position: relative;
   align-items: center;
   /* background-color: red; */
   border-bottom: #E8E8E8 solid 1px;
@@ -384,9 +385,20 @@
 }
 
 .chat-nav-bar > img {
-  
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
   height: 30px;
   width: 30px;
+  transition: 0.3s;
+}
+
+.chat-nav-bar > img:hover {
+  -webkit-transform:rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .chat-box {
@@ -414,6 +426,7 @@
   background-color: rgb(245, 247, 250);
   border-right: #E8E8E8 solid 1px;
   color: #9B9B9B;
+  cursor: pointer;
   font-size: 14px;
   font-weight: 600;
   width: 25%;
@@ -439,6 +452,7 @@
   background-color: rgba(224, 138, 166, 1);
   border-radius: 45px;
   color: white;
+  cursor: pointer;
   line-height: 40px;
   margin: 0 auto;
   text-align: center;
