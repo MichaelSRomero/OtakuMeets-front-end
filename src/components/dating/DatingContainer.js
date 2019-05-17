@@ -16,6 +16,12 @@ class DatingContainer extends React.Component {
     this.setState({currentClicked: user})
   }
 
+  exitProfileOnClick = () => {
+    this.setState({
+      currentClicked: {}
+    })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -23,7 +29,7 @@ class DatingContainer extends React.Component {
           <div className="dating-container">
             <DetailContainer handleClick={this.handleClick}/>
             { Object.keys(this.state.currentClicked).length > 0 ?
-              <ConversationContainer />
+              <ConversationContainer exitProfileOnClick={this.exitProfileOnClick}/>
               :
               <MasterContainer />
             }

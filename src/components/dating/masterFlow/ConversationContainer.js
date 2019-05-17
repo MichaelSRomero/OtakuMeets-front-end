@@ -1,7 +1,14 @@
 import React from 'react';
 import close from '../../../images/tinder-close.png'
+import genderIcon from '../../../images/gender-icon.png'
+import personalityIcon from '../../../images/personality-icon.png'
+import aliasIcon from '../../../images/alias-icon.png'
+import showIcon from '../../../images/show-icon.png'
+import enIcon from '../../../images/en-icon.png'
+import jpIcon from '../../../images/jp-icon.png'
 
 class ConversationContainer extends React.Component {
+
   render() {
     return (
       <div className="conversation-container">
@@ -16,7 +23,10 @@ class ConversationContainer extends React.Component {
 
             <p>You matched with KaleMuffin</p>
 
-            <img src={close} alt="small icon"/>
+            <img
+              onClick={this.props.exitProfileOnClick}
+              src={close}
+              alt="close button"/>
           </div>
 
           <div className="chat-box">
@@ -41,6 +51,34 @@ class ConversationContainer extends React.Component {
           ______________PROFILE______________
           **********************************/}
         <div className="profile">
+          <div className="profile-avatar"></div>
+
+          <div className="profile-header-tab">
+            <div className="profile-header">
+              <span>GloriaRain</span>
+              <span>26</span>
+            </div>
+
+            <div className="profile-sub-header">
+              <div className="sub-row">
+                <img
+                  src={personalityIcon}
+                  alt="Personality Icon"
+                />
+                <span>ESTP</span>
+              </div>
+
+              <div className="sub-row">
+                <img
+                  src={genderIcon}
+                  alt="Gender Icon"
+                  />
+                <span>Male</span>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>

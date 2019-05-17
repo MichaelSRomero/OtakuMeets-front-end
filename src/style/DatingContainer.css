@@ -355,12 +355,6 @@
   width: 60%;
 }
 
-.profile {
-  background-color: blue;
-  height: 100%;
-  width: 40%;
-}
-
 .chat-nav-bar {
   display: flex;
   position: relative;
@@ -402,13 +396,11 @@
 }
 
 .chat-box {
-  /* background-color: yellow; */
   height: 527px;
   width: 100%;
 }
 
 .message-bar {
-  /* background-color: yellow; */
   height: 72px;
   width: 100%;
 }
@@ -433,7 +425,7 @@
 }
 
 .unmatch:hover {
-  background-color: rgba(224, 138, 166, 1);
+  background-image: linear-gradient(to right, rgb(234, 71, 121) , rgb(238, 121, 97));
   color: white;
 }
 
@@ -449,13 +441,68 @@
 
 .submit-message {
   align-self: center;
-  background-color: rgba(224, 138, 166, 1);
+  background-image: linear-gradient(to right, rgb(234, 71, 121) , rgb(238, 121, 97));
   border-radius: 45px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.27);
   color: white;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 40px;
   margin: 0 auto;
   text-align: center;
   height: 40px;
   width: 90px;
+}
+
+/**************PROFILE***************/
+.profile {
+  background-color: white;
+  height: 100%;
+  width: 40%;
+}
+
+.profile-avatar {
+  background-image: url("https://vignette.wikia.nocookie.net/bleach/images/b/bd/Ep267UlquiorraProfile2.png/revision/latest/?cb=20190402043032&path-prefix=en");
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+}
+
+.profile-header-tab {
+  padding: 10px 16px;
+  border-bottom: #E8E8E8 solid 1px;
+}
+
+.profile-header {
+  margin-bottom: 8px;
+}
+
+.profile-header > span:first-child {
+  color: rgb(66, 66, 66);
+  padding-right: 8px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.profile-header > span:nth-child(2) {
+  color: rgb(66, 66, 66);
+  font-size: 22px;
+}
+
+.profile-sub-header {
+  color: #9B9B9B;
+  font-weight: 400;
+}
+
+.sub-row {
+  display: flex;
+  margin: 2px 0;
+}
+
+.sub-row > img {
+  margin-right: 4px;
+  height: 20px;
+  width: 20px;
 }
