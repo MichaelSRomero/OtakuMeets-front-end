@@ -401,14 +401,12 @@
 }
 
 .message-bar {
-  height: 72px;
-  width: 100%;
-}
-
-.message-bar {
   display: flex;
   flex-direction: row;
   border-top: #E8E8E8 solid 1px;
+  border-right: #E8E8E8 solid 1px;
+  height: 72px;
+  width: calc(100% - 1px);
 }
 
 .unmatch {
@@ -453,6 +451,11 @@
   text-align: center;
   height: 40px;
   width: 90px;
+  transition: 0.3s;
+}
+
+.submit-message:active {
+  transform: scale(0.9);
 }
 
 /**************PROFILE***************/
@@ -463,7 +466,7 @@
 }
 
 .profile-avatar {
-  background-image: url("https://vignette.wikia.nocookie.net/bleach/images/b/bd/Ep267UlquiorraProfile2.png/revision/latest/?cb=20190402043032&path-prefix=en");
+  background-image: url("https://vignette.wikia.nocookie.net/fairytail/images/b/b6/Erza_in_OVA_8.png/revision/latest/");
   background-position: center;
   background-size: cover;
   height: 400px;
@@ -504,5 +507,38 @@
 .sub-row > img {
   margin-right: 4px;
   height: 20px;
-  width: 20px;
+  width: auto;
+}
+
+.profile-character-tab {
+  padding: 10px 16px;
+}
+
+#character-header {
+  color: #424242;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.character-row {
+  display: flex;
+  align-items: center;
+  color: #9B9B9B;
+  font-weight: 400;
+  margin: 2px 0;
+}
+
+.character-row > img {
+  margin-right: 4px;
+  height: 12px;
+  width: auto;
+}
+
+#alias-icon {
+  height: 8px;
+}
+
+#show-icon {
+  height: 18px;
 }

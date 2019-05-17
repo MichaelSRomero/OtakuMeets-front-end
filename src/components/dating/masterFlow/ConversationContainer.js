@@ -79,6 +79,43 @@ class ConversationContainer extends React.Component {
             </div>
           </div>
 
+          <div className="profile-character-tab">
+            <p id="character-header">Character Info</p>
+            <div className="character-row">
+              <img
+                src={enIcon}
+                alt="English Name Icon"
+              />
+              <span>Erza Scarlet</span>
+            </div>
+
+            <div className="character-row">
+              <img
+                src={jpIcon}
+                alt="Japanese Name Icon"
+              />
+              <span>エルザ・スカーレット</span>
+            </div>
+
+            <div className="character-row">
+              <img
+                id="alias-icon"
+                src={aliasIcon}
+                alt="Alias Icon"
+              />
+              <span>Titania</span>
+            </div>
+
+            <div className="character-row">
+              <img
+                id="show-icon"
+                src={showIcon}
+                alt="Show Icon"
+              />
+              <span>Fairy Tail</span>
+            </div>
+          </div>
+
         </div>
 
       </div>
