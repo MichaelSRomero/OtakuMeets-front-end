@@ -2,7 +2,9 @@ import React from 'react';
 
 class MessageCard extends React.Component {
   render() {
-    const { user } = this.props
+    const { userConvo } = this.props
+    const user = userConvo.user
+    const messages = userConvo.messages
     let randomIndex = Math.floor(Math.random() * user.character["avatar_urls"].length)
 
     return (
@@ -20,7 +22,7 @@ class MessageCard extends React.Component {
             {user.username}
           </p>
           <p className="info-last-message">
-            What are you doing today?
+            {messages[messages.length - 1].content}
           </p>
         </div>
       </div>

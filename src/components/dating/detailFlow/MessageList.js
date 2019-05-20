@@ -6,7 +6,7 @@ class MessageList extends React.Component {
   createMessageCards = () => {
     return this.props.conversations.map(user => <MessageCard
       key={user.id}
-      user={user}
+      userConvo={user}
       addCurrentMatchOnClick={this.props.addCurrentMatchOnClick}/>)
   }
 
