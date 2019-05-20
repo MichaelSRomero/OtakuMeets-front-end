@@ -1,22 +1,31 @@
 import React from 'react';
 
-const MessageCard = (props) => {
-  return (
-    <div className="message-card">
-      <div className="outer-user-avatar">
-        <div className="user-avatar"></div>
-      </div>
+class MessageCard extends React.Component {
+  render() {
+    const { user } = this.props
+    let randomIndex = Math.floor(Math.random() * user.character["avatar_urls"].length)
 
-      <div className="message-info">
-        <p className="info-username">
-          Liikemike
-        </p>
-        <p className="info-last-message">
-          What are you doing today?
-        </p>
+    return (
+      <div
+        className="message-card"
+        onClick={() => this.props.addCurrentMatchOnClick({...user, avatarIndex: randomIndex})}>
+        <div className="outer-user-avatar">
+          <div
+            className="user-avatar"
+            style={{backgroundImage: `url("${user.character['avatar_urls'][randomIndex]}")`}}></div>
+        </div>
+
+        <div className="message-info">
+          <p className="info-username">
+            {user.username}
+          </p>
+          <p className="info-last-message">
+            What are you doing today?
+          </p>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default MessageCard;

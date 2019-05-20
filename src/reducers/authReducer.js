@@ -5,7 +5,8 @@ const initialState = {
   preference: '',
   token: '',
   character: {},
-  matches: []
+  matches: [],
+  conversations: []
 }
 
 const authReducer = (state = initialState, action) => {
@@ -37,7 +38,8 @@ const authReducer = (state = initialState, action) => {
         username: existingUser.username,
         preference: existingUser.preference,
         character: existingUser.character,
-        matches: existingUser["confirmed_matches"]
+        matches: existingUser["confirmed_matches"],
+        conversations: existingUser.conversations
       }
     case 'LOG_OUT':
       localStorage.clear()

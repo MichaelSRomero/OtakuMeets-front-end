@@ -41,9 +41,13 @@ class DetailContainer extends React.Component {
         {
           this.props.matches.length > 0 ?
           this.state.currentHeader === "Matches" ?
-            <MatchList matches={this.props.matches} handleClick={this.props.handleClick}/>
+            <MatchList
+              matches={this.props.matches}
+              addCurrentMatchOnClick={this.props.addCurrentMatchOnClick}/>
           :
-            <MessageList />
+            <MessageList
+              conversations={this.props.conversations}
+              addCurrentMatchOnClick={this.props.addCurrentMatchOnClick}/>
           :
           <div className="detail-list-empty">
             <div className="empty-img">
@@ -59,7 +63,10 @@ class DetailContainer extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  return {matches: auth.matches}
+  return {
+    matches: auth.matches,
+    conversations: auth.conversations
+  }
 }
 
 export default connect(mapStateToProps)(DetailContainer);

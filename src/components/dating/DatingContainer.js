@@ -11,7 +11,7 @@ class DatingContainer extends React.Component {
     currentClicked: {},
   }
 
-  handleClick = (user) => {
+  addCurrentMatchOnClick = (user) => {
     console.log(user);
     this.setState({currentClicked: user})
   }
@@ -27,7 +27,9 @@ class DatingContainer extends React.Component {
       <React.Fragment>
         { this.props.token ?
           <div className="dating-container">
-            <DetailContainer handleClick={this.handleClick}/>
+            <DetailContainer
+              addCurrentMatchOnClick={this.addCurrentMatchOnClick}/>
+
             { Object.keys(this.state.currentClicked).length > 0 ?
               <ConversationContainer
                 exitProfileOnClick={this.exitProfileOnClick}

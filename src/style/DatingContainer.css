@@ -306,7 +306,7 @@
 }
 
 .user-avatar {
-  background-image: url("https://vignette.wikia.nocookie.net/bleach/images/c/c4/Ep40ByakuyaKuchiki.png/revision/latest/?cb=20140813230719&path-prefix=en");
+  /* background-image: url("https://vignette.wikia.nocookie.net/bleach/images/c/c4/Ep40ByakuyaKuchiki.png/revision/latest/?cb=20140813230719&path-prefix=en"); */
   background-position: center;
   background-size: cover;
   height: 70px;

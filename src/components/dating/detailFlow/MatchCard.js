@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class MatchCard extends React.Component {
   render() {
     const { user } = this.props
@@ -12,7 +11,7 @@ class MatchCard extends React.Component {
         style={
           {backgroundImage: `url("${user.character["avatar_urls"][randomIndex]}")`}
         }
-        onClick={() => this.props.handleClick({...user, avatarIndex: randomIndex}) }>
+        onClick={() => this.props.addCurrentMatchOnClick({...user, avatarIndex: randomIndex}) }>
         <div className="match-info">
           <span>{user.username}</span>
         </div>

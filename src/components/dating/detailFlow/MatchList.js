@@ -7,7 +7,7 @@ class MatchList extends React.Component {
     return this.props.matches.map(user => <MatchCard
         key={user.id}
         user={user}
-        handleClick={this.props.handleClick}/>)
+        addCurrentMatchOnClick={this.props.addCurrentMatchOnClick}/>)
   }
 
   render() {
