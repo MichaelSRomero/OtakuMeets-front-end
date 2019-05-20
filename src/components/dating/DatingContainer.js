@@ -12,7 +12,6 @@ class DatingContainer extends React.Component {
   }
 
   addCurrentMatchOnClick = (user) => {
-    console.log(user);
     this.setState({currentClicked: user})
   }
 

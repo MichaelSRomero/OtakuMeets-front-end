@@ -1,4 +1,6 @@
 import React from 'react';
+import ChatMessage from './ChatMessage';
+import { connect } from 'react-redux';
 import close from '../../../images/tinder-close.png'
 import genderIcon from '../../../images/gender-icon.png'
 import personalityIcon from '../../../images/personality-icon.png'
@@ -8,6 +10,20 @@ import enIcon from '../../../images/en-icon.png'
 import jpIcon from '../../../images/jp-icon.png'
 
 class ConversationContainer extends React.Component {
+
+  createChatMessages = () => {
+    let currentConvo = this.props.conversations.find(conversation => {
+      return conversation.user.id === this.props.user.id
+    })
+
+    if (currentConvo !== undefined) {
+      return currentConvo.messages.map(message => <ChatMessage
+        key={message.id} 
+        message={message}/>)
+    } else {
+      console.log("NO MESSAGES FOR THIS USER")
+    }
+  }
 
   render() {
     const { user } = this.props
@@ -34,6 +50,8 @@ class ConversationContainer extends React.Component {
           </div>
 
           <div className="chat-box">
+            {/* RENDER MESSAGES HERE*/}
+            {this.createChatMessages()}
           </div>
 
           <div className="message-bar">
@@ -130,4 +148,10 @@ class ConversationContainer extends React.Component {
   }
 }
 
-export default ConversationContainer;
+const mapStateToProps = ({ auth }) => {
+  return {
+    conversations: auth.conversations
+  }
+}
+
+export default connect(mapStateToProps)(ConversationContainer);
