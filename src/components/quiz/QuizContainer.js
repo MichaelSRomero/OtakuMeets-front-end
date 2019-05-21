@@ -69,7 +69,7 @@ class QuizContainer extends React.Component {
           let personalityType = this.findPersonality()
 
           this.props.addCharacterToUser(this.props.auth, personalityType)
-          this.props.history.push('/character');
+            .then(promise => this.props.history.push('/character'))
       });
     }
   }

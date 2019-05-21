@@ -82,6 +82,8 @@ export const addCharacterToUser = (user, personalityType) => {
             "avatar_urls": character["avatar_urls"][randomIndex]
           }
         ))
+
+        return Promise.resolve()
       })
   }
 }

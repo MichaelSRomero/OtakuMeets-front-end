@@ -12,7 +12,7 @@ class CharacterContainer extends React.Component {
 
   getPersonalityType = (index) => {
     // "ISFP" = ['I', 'S', 'F', 'P']
-    const personalityType = this.props.character["personality_type"].split('')
+    const personalityType = this.props.character.personality.split('')
     const traitSymbol = personalityType[index]
     const traitsObj = this.props.traits
 
