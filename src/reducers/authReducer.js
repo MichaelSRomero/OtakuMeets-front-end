@@ -20,6 +20,13 @@ const authReducer = (state = initialState, action) => {
         ...state,
         matches: newMatches
       }
+    case "ADD_NEW_CONVERSATION":
+      const newConversationList = [...state.conversations, action.payload]
+      
+      return {
+        ...state,
+        conversations: newConversationList
+      }
     case 'SAVE_TOKEN':
       return {...state, token: action.payload}
     case 'SIGN_UP':

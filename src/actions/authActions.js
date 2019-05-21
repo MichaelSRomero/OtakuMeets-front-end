@@ -5,6 +5,7 @@ const createUser = (newUser) => ({type: 'SIGN_UP', payload: newUser})
 const logInUser = (existingUser) => ({type: 'LOG_IN', payload: existingUser})
 const addCharacter = (character) => ({type: 'ADD_CHARACTER', payload: character})
 const addNewMatch = (user) => ({type: 'ADD_NEW_MATCH', payload: user})
+const addNewConversation = (conversation) => ({type: 'ADD_NEW_CONVERSATION', payload: conversation})
 export const logOutUser = () => ({type: 'LOG_OUT'})
 export const saveToken = (token) => ({type: 'SAVE_TOKEN', payload: token})
 
@@ -103,5 +104,31 @@ export const createMatch = (currentUserID, user) => {
          }
 
        })
+  }
+}
+
+export const createConversation = (currentUserID, matchedUser, textMessage) => {
+  return (dispatch) => {
+    return fetch("http://localhost:3000/conversations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+    		"Accept": "application/json"
+      },
+      body: JSON.stringify({
+        "user_a_id": currentUserID,
+        "user_b_id": matchedUser.id,
+        "content": textMessage
+      })
+    }).then(res => res.json())
+      .then(conversationJSON => {
+        const convoObj = {
+          id: conversationJSON.id,
+          user: conversationJSON.recipient,
+          messages: conversationJSON.messages
+        }
+        dispatch(addNewConversation(convoObj))
+      })
+
   }
 }
