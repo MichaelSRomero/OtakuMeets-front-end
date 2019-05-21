@@ -385,18 +385,11 @@
 }
 
 .chat-message {
-  position: relative;
   margin: 12px 0;
 }
 
-.timestamp {
-  position: absolute;
-  color: #9B9B9B;
-  font-size: 10px;
-}
-
 .inner-chat-message {
-  display: flex;
+  display: inline-flex;
   align-items: flex-end;
 }
 

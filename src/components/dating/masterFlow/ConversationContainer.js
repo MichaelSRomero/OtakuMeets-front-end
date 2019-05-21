@@ -167,7 +167,6 @@ class ConversationContainer extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-
   return {id: auth.id}
 }
 
