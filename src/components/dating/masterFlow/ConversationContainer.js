@@ -18,8 +18,10 @@ class ConversationContainer extends React.Component {
 
     if (currentConvo !== undefined) {
       return currentConvo.messages.map(message => <ChatMessage
-        key={message.id} 
-        message={message}/>)
+        key={message.id}
+        message={message}
+        userID={this.props.id}
+        matchUser={this.props.user}/>)
     } else {
       console.log("NO MESSAGES FOR THIS USER")
     }
@@ -61,7 +63,7 @@ class ConversationContainer extends React.Component {
 
             <input
               type="text"
-              placeHolder="Type a message">
+              placeholder="Type a message">
             </input>
 
             <div className="submit-message">
@@ -150,7 +152,8 @@ class ConversationContainer extends React.Component {
 
 const mapStateToProps = ({ auth }) => {
   return {
-    conversations: auth.conversations
+    conversations: auth.conversations,
+    id: auth.id
   }
 }
 

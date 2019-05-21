@@ -367,7 +367,6 @@
 }
 
 .chat-nav-avatar {
-  /* background-image: url("https://vignette.wikia.nocookie.net/bleach/images/f/f0/Ep37NanaoProfile.png/revision/latest/?cb=20190118043144&path-prefix=en"); */
   background-position: center;
   background-size: cover;
   border-radius: 50%;
@@ -402,22 +401,43 @@
 }
 
 .chat-message {
-  text-align: right;
+  /* text-align: right; */
+  position: relative;
+  margin: 12px 0;
 }
 
 .timestamp {
+  position: absolute;
   color: #9B9B9B;
   font-size: 10px;
 }
 
-.message-content {
-  /* background-color: rgb(86, 163, 248); */
-  border-top-left-radius: 20px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 20px;
-  /* color: white; */
-  font-size: 14px;
+.inner-chat-message {
+  display: flex;
+  align-items: flex-end;
+}
+
+.match-user-outer-avatar {
+  margin: 0 12px 0 0;
+}
+
+.match-user-avatar {
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+}
+
+.message-wrap {
+  /* display: inline-block; */
+  background-color: rgb(86, 163, 248);
   padding: 10px 12px;
+  width: auto;
+}
+
+.message-content {
+  font-size: 14px;
 }
 
 .message-bar {
