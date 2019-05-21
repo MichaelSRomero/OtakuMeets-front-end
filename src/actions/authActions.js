@@ -5,6 +5,7 @@ const createUser = (newUser) => ({type: 'SIGN_UP', payload: newUser})
 const logInUser = (existingUser) => ({type: 'LOG_IN', payload: existingUser})
 const addCharacter = (character) => ({type: 'ADD_CHARACTER', payload: character})
 const addNewMatch = (user) => ({type: 'ADD_NEW_MATCH', payload: user})
+const addNewMessage = (existingConversation) => ({type: 'ADD_NEW_MESSAGE', payload: existingConversation})
 const addNewConversation = (conversation) => ({type: 'ADD_NEW_CONVERSATION', payload: conversation})
 export const logOutUser = () => ({type: 'LOG_OUT'})
 export const saveToken = (token) => ({type: 'SAVE_TOKEN', payload: token})
@@ -128,6 +129,30 @@ export const createConversation = (currentUserID, matchedUser, textMessage) => {
           messages: conversationJSON.messages
         }
         dispatch(addNewConversation(convoObj))
+      })
+
+  }
+}
+
+export const createMessage = (currentUserID, conversation, textMessage) => {
+  return (dispatch) => {
+    return fetch("http://localhost:3000/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+    		"Accept": "application/json"
+      },
+      body: JSON.stringify({
+        "user_id": currentUserID,
+        "conversation_id": conversation.id,
+        "content": textMessage
+      })
+    }).then(res => res.json())
+      .then(messageJSON => {
+        const updatedMessages = [...conversation.messages, messageJSON]
+        const updatedConversation = {...conversation, messages: updatedMessages}
+
+        dispatch(addNewMessage(updatedConversation))
       })
 
   }

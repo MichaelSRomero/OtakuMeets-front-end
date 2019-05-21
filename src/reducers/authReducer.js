@@ -20,9 +20,18 @@ const authReducer = (state = initialState, action) => {
         ...state,
         matches: newMatches
       }
+    case "ADD_NEW_MESSAGE":
+    const updatedConversationList = state.conversations.map(conversation => {
+      return conversation.id === action.payload.id ? action.payload : conversation
+    })
+
+    return {
+      ...state,
+      conversations: updatedConversationList
+    }
     case "ADD_NEW_CONVERSATION":
       const newConversationList = [...state.conversations, action.payload]
-      
+
       return {
         ...state,
         conversations: newConversationList

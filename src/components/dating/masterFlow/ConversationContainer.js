@@ -1,7 +1,7 @@
 import React from 'react';
 import ChatMessage from './ChatMessage';
 import { connect } from 'react-redux';
-import { createConversation } from '../../../actions/authActions';
+import { createConversation, createMessage } from '../../../actions/authActions';
 import close from '../../../images/tinder-close.png'
 import genderIcon from '../../../images/gender-icon.png'
 import personalityIcon from '../../../images/personality-icon.png'
@@ -37,7 +37,7 @@ class ConversationContainer extends React.Component {
     let currentConvo = this.props.conversation
 
     if (textContent.length > 0 && Object.keys(currentConvo).length > 0) {
-      console.log(textContent)
+      this.props.createMessage(this.props.id, currentConvo, textContent)
       this.setState({textContent: ''})
     } else if (textContent.length > 0 && Object.keys(currentConvo).length < 1) {
       this.props.createConversation(this.props.id, this.props.user, textContent)
@@ -175,4 +175,4 @@ const mapStateToProps = ({ auth }) => {
   return {id: auth.id}
 }
 
-export default connect(mapStateToProps, { createConversation })(ConversationContainer);
+export default connect(mapStateToProps, { createConversation, createMessage })(ConversationContainer);
