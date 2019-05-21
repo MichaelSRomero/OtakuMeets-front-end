@@ -9,10 +9,25 @@ class DatingContainer extends React.Component {
 
   state = {
     currentClicked: {},
+    currentConversation: {}
   }
 
   addCurrentMatchOnClick = (user) => {
-    this.setState({currentClicked: user})
+    let currentConvo = this.props.conversations.find(conversation => {
+      return conversation.user.id === user.id
+    })
+
+    if (currentConvo !== undefined) {
+      this.setState({
+        currentClicked: user,
+        currentConversation: currentConvo
+      })
+    } else {
+      this.setState({
+        currentClicked: user,
+        currentConversation: {}
+      })
+    }
   }
 
   exitProfileOnClick = () => {
@@ -33,6 +48,7 @@ class DatingContainer extends React.Component {
               <ConversationContainer
                 exitProfileOnClick={this.exitProfileOnClick}
                 user={this.state.currentClicked}
+                conversation={this.state.currentConversation}
               />
               :
               <MasterContainer />
@@ -47,7 +63,10 @@ class DatingContainer extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  return {token: auth.token}
+  return {
+    conversations: auth.conversations,
+    token: auth.token
+  }
 }
 
 export default connect(mapStateToProps)(DatingContainer);

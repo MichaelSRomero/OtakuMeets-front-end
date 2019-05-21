@@ -1,5 +1,4 @@
 import React from 'react';
-import MatchCard from './MatchCard';
 import MatchList from './MatchList';
 import MessageList from './MessageList';
 import { connect } from 'react-redux';

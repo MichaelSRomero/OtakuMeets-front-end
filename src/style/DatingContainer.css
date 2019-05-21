@@ -1,8 +1,6 @@
 .dating-container {
   display: flex;
   flex-direction: row;
-  /* background-color: rgba(243, 246, 249, 1); */
-  /* background-color: blue; */
   font-family: 'Lato', sans-serif;
   height: 697.5px;
   width: 100%;
@@ -23,8 +21,6 @@
 .user-card {
   position: relative;
   background-color: white;
-  /* background-image: url("https://vignette.wikia.nocookie.net/fairytail/images/2/21/Lucy_mugshot.jpg/revision/latest/"); */
-  /* background-image: url("https://vignette.wikia.nocookie.net/naruto/images/b/ba/Sakurap2.png/revision/latest?cb=20170726101516"); */
   background-position: center;
   background-size: cover;
   border-radius: 6px;
@@ -73,7 +69,6 @@
 
 .gamepad {
   display: flex;
-  /* overflow: hidden; */
   margin: 0px auto;
   height: 100px;
   width: 350px;
@@ -150,7 +145,6 @@
   justify-content: center;
   margin-right: 12px;
   height: 50px;
-  /* width: 150px; */
 }
 
 .toolbar-icons > img {
@@ -169,7 +163,6 @@
 .detail-container {
   display: inline-block;
   overflow: auto;
-  /* background-color: rgba(153,102,153, 0.8); */
   border-right: rgb(229, 233, 236) solid 1px;
   height: 100%;
   width: 30%;
@@ -177,7 +170,6 @@
 
 .list-header {
   display: flex;
-  /* position: fixed; */
   background-color: white;
   color: #424242;
   font-size: 15px;
@@ -193,7 +185,6 @@
 
 /* Only selected div gets highlighted */
 .list-header-text > span {
-  /* border-bottom: rgba(255, 0, 0, 0.8) solid 3px; */
   cursor: pointer;
 }
 
@@ -202,7 +193,6 @@
   align-content: flex-start;
   flex-wrap: wrap;
   justify-content: space-between;
-/* background-color: rgba(173,112,233, 1); */
   margin: 16px 16px 0 16px;
   height: 90.6%;
 }
@@ -261,7 +251,6 @@
   background-color: rgba(174, 174, 174, 1);
   bottom: 0px;
   border-radius: 0 0 6px 6px;
-  /* border-top: black solid 1px; */
   color: rgba(255, 255, 255, 1);
   font-size: 12px;
   font-weight: 800;
@@ -276,8 +265,6 @@
 .detail-list-messages {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-/* background-color: rgba(173,112,233, 1); */
   margin-right: 5px;
   height: 90.6%;
 }
@@ -300,13 +287,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: purple; */
   height: 100px;
   width: 40%;
 }
 
 .user-avatar {
-  /* background-image: url("https://vignette.wikia.nocookie.net/bleach/images/c/c4/Ep40ByakuyaKuchiki.png/revision/latest/?cb=20140813230719&path-prefix=en"); */
   background-position: center;
   background-size: cover;
   height: 70px;
@@ -359,7 +344,6 @@
   display: flex;
   position: relative;
   align-items: center;
-  /* background-color: red; */
   border-bottom: #E8E8E8 solid 1px;
   color: #9B9B9B;
   height: 99px;
@@ -401,7 +385,6 @@
 }
 
 .chat-message {
-  /* text-align: right; */
   position: relative;
   margin: 12px 0;
 }
@@ -430,7 +413,6 @@
 }
 
 .message-wrap {
-  /* display: inline-block; */
   background-color: rgb(86, 163, 248);
   padding: 10px 12px;
   width: auto;

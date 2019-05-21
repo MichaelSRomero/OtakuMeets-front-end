@@ -11,19 +11,32 @@ import jpIcon from '../../../images/jp-icon.png'
 
 class ConversationContainer extends React.Component {
 
-  createChatMessages = () => {
-    let currentConvo = this.props.conversations.find(conversation => {
-      return conversation.user.id === this.props.user.id
-    })
+  state = {
+    textContent: ''
+  }
 
-    if (currentConvo !== undefined) {
+  createChatMessages = () => {
+    let currentConvo = this.props.conversation
+
+    if (Object.keys(currentConvo).length > 0) {
       return currentConvo.messages.map(message => <ChatMessage
         key={message.id}
         message={message}
         userID={this.props.id}
         matchUser={this.props.user}/>)
-    } else {
-      console.log("NO MESSAGES FOR THIS USER")
+    }
+  }
+
+  handleTextChange = (e) => {
+    this.setState({textContent: e.target.value})
+  }
+
+  sendMessageOnClick = () => {
+    const textContent = this.state.textContent
+
+    if (textContent.length > 0) {
+      console.log(textContent)
+      this.setState({textContent: ''})
     }
   }
 
@@ -52,7 +65,6 @@ class ConversationContainer extends React.Component {
           </div>
 
           <div className="chat-box">
-            {/* RENDER MESSAGES HERE*/}
             {this.createChatMessages()}
           </div>
 
@@ -63,10 +75,14 @@ class ConversationContainer extends React.Component {
 
             <input
               type="text"
-              placeholder="Type a message">
+              placeholder="Type a message"
+              value={this.state.textContent}
+              onChange={this.handleTextChange}>
             </input>
 
-            <div className="submit-message">
+            <div
+              className="submit-message"
+              onClick={this.sendMessageOnClick}>
               <span>SEND</span>
             </div>
           </div>
@@ -151,10 +167,8 @@ class ConversationContainer extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  return {
-    conversations: auth.conversations,
-    id: auth.id
-  }
+
+  return {id: auth.id}
 }
 
 export default connect(mapStateToProps)(ConversationContainer);

@@ -5,6 +5,7 @@ const currentUserMessageStyle = {
   paddingLeft: '100px'
 }
 
+// RENDER THIS STYLE TO THE NON-LOGGED-IN USER'S MESSAGE
 const currentUserWrapStyle = {
   backgroundColor: 'rgb(86, 163, 248)',
   borderTopLeftRadius: '16px',
@@ -12,7 +13,7 @@ const currentUserWrapStyle = {
   borderBottomLeftRadius: '16px',
   color: 'white'
 }
-
+// RENDER THIS STYLE TO THE NON-LOGGED-IN USER'S MESSAGE
 const matchUserWrapStyle = {
   backgroundColor: 'rgb(241, 241, 241)',
   borderTopLeftRadius: '6px',
