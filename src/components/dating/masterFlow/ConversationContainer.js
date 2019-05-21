@@ -2,6 +2,7 @@ import React from 'react';
 import ChatMessage from './ChatMessage';
 import { connect } from 'react-redux';
 import { createConversation, createMessage } from '../../../actions/authActions';
+import { addCurrentConversation } from '../../../actions/usersActions';
 import close from '../../../images/tinder-close.png'
 import genderIcon from '../../../images/gender-icon.png'
 import personalityIcon from '../../../images/personality-icon.png'
@@ -35,12 +36,21 @@ class ConversationContainer extends React.Component {
   sendMessageOnClick = () => {
     const textContent = this.state.textContent
     let currentConvo = this.props.conversation
+    const { addCurrentConversation } = this.props
 
     if (textContent.length > 0 && Object.keys(currentConvo).length > 0) {
       this.props.createMessage(this.props.id, currentConvo, textContent)
+        .then(promise => {
+          addCurrentConversation(promise)
+      })
+
       this.setState({textContent: ''})
     } else if (textContent.length > 0 && Object.keys(currentConvo).length < 1) {
       this.props.createConversation(this.props.id, this.props.user, textContent)
+        .then(promise => {
+          addCurrentConversation(promise)
+      })
+      
       this.setState({textContent: ''})
     }
   }
@@ -175,4 +185,4 @@ const mapStateToProps = ({ auth }) => {
   return {id: auth.id}
 }
 
-export default connect(mapStateToProps, { createConversation, createMessage })(ConversationContainer);
+export default connect(mapStateToProps, { createConversation, createMessage, addCurrentConversation })(ConversationContainer);

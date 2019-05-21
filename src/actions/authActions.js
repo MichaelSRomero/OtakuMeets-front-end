@@ -129,6 +129,7 @@ export const createConversation = (currentUserID, matchedUser, textMessage) => {
           messages: conversationJSON.messages
         }
         dispatch(addNewConversation(convoObj))
+        return Promise.resolve(convoObj)
       })
 
   }
@@ -153,6 +154,7 @@ export const createMessage = (currentUserID, conversation, textMessage) => {
         const updatedConversation = {...conversation, messages: updatedMessages}
 
         dispatch(addNewMessage(updatedConversation))
+        return Promise.resolve(updatedConversation)
       })
 
   }
