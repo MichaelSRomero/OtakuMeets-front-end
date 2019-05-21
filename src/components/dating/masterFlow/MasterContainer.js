@@ -80,7 +80,7 @@ class MasterContainer extends React.Component {
 
     if (this.areUsersLeft()) {
       this.props.createMatch(loggedInUser, currentUser)
-      alert("Liked User")
+
       this.setState( (state) => ({cardIndex: state.cardIndex + 1}) )
     }
   }
@@ -166,8 +166,6 @@ class MasterContainer extends React.Component {
 }
 
 const mapStateToProps = ({ users, auth}) => {
-  // return {users: users.allUsers, id: auth.id}
-  console.log(users.allUsers)
   if (auth.preference === "Female") {
     return {users: users.femaleUsers, id: auth.id}
   } else if (auth.preference === "Male") {

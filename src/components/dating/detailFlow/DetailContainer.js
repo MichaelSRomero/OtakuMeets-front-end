@@ -69,5 +69,3 @@ const mapStateToProps = ({ auth }) => {
 }
 
 export default connect(mapStateToProps)(DetailContainer);
-
-// this.props.matches.length > 0
