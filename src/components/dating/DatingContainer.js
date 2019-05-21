@@ -1,16 +1,12 @@
 import React from 'react';
 import '../../style/DatingContainer.css'
 import { connect } from 'react-redux';
+import { addCurrentUser, addCurrentConversation, removeCurrentUser } from '../../actions/usersActions'
 import MasterContainer from './masterFlow/MasterContainer'
 import ConversationContainer from './masterFlow/ConversationContainer'
 import DetailContainer from './detailFlow/DetailContainer'
 
 class DatingContainer extends React.Component {
-
-  state = {
-    currentClicked: {},
-    currentConversation: {}
-  }
 
   addCurrentMatchOnClick = (user) => {
     let currentConvo = this.props.conversations.find(conversation => {
@@ -18,22 +14,16 @@ class DatingContainer extends React.Component {
     })
 
     if (currentConvo !== undefined) {
-      this.setState({
-        currentClicked: user,
-        currentConversation: currentConvo
-      })
+      this.props.addCurrentUser(user)
+      this.props.addCurrentConversation(currentConvo)
     } else {
-      this.setState({
-        currentClicked: user,
-        currentConversation: {}
-      })
+      this.props.addCurrentUser(user)
+      this.props.addCurrentConversation({})
     }
   }
 
   exitProfileOnClick = () => {
-    this.setState({
-      currentClicked: {}
-    })
+    this.props.removeCurrentUser()
   }
 
   render() {
@@ -44,11 +34,11 @@ class DatingContainer extends React.Component {
             <DetailContainer
               addCurrentMatchOnClick={this.addCurrentMatchOnClick}/>
 
-            { Object.keys(this.state.currentClicked).length > 0 ?
+            { Object.keys(this.props.currentClicked).length > 0 ?
               <ConversationContainer
                 exitProfileOnClick={this.exitProfileOnClick}
-                user={this.state.currentClicked}
-                conversation={this.state.currentConversation}
+                user={this.props.currentClicked}
+                conversation={this.props.currentConversation}
               />
               :
               <MasterContainer />
@@ -62,11 +52,13 @@ class DatingContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, users }) => {
   return {
     conversations: auth.conversations,
+    currentClicked: users.currentClicked,
+    currentConversation: users.currentConversation,
     token: auth.token
   }
 }
 
-export default connect(mapStateToProps)(DatingContainer);
+export default connect(mapStateToProps, { addCurrentUser, addCurrentConversation, removeCurrentUser })(DatingContainer);

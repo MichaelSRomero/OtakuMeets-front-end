@@ -4,8 +4,9 @@
 const addUsers = (users) => ({type: 'ADD_USERS', payload: users})
 const addMaleUsers = (males) => ({type: 'ADD_MALE_USERS', payload: males})
 const addFemaleUsers = (females) => ({type: 'ADD_FEMALE_USERS', payload: females})
-const addUsersEmpty = (boolean) => ({type: 'USERS_EMPTY', payload: boolean})
-
+export const addCurrentUser = (user) => ({type: 'ADD_CURRENT_USER', payload: user})
+export const addCurrentConversation = (conversation) => ({type: 'ADD_CURRENT_CONVERSATION', payload: conversation})
+export const removeCurrentUser = () => ({type: 'REMOVE_CURRENT_USER'})
 /////////////////////////////////////////
 //___________THUNK CREATORS____________//
 /////////////////////////////////////////
