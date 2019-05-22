@@ -75,9 +75,35 @@
 }
 
 .powered-by {
+  display: flex;
+  align-items: center;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
   padding: 20px;
+}
+
+.powered-by > span {
+  margin-right: 8px;
+}
+
+.react-logo {
+  height: 48px;
+  width: auto;
+  transition: 0.3s;
+}
+
+.react-logo:hover {
+  transform: rotate(90deg);
+}
+
+.rails-logo {
+  height: 52px;
+  width: auto;
+  transition: 0.6s;
+}
+
+.rails-logo:hover {
+  transform: rotate(180deg);
 }
 
 /***********************************

@@ -77,6 +77,7 @@
   width: 25%;
   text-align: center;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .personality-symbol:hover {

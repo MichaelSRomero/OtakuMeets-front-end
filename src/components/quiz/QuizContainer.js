@@ -137,7 +137,7 @@ class QuizContainer extends React.Component {
             <div className="quiz-overlap-answers">
               <div className="quiz-header-title">
                 <div className="quiz-pages">
-                  <span> {this.state.page} of 8</span>
+                  <span> {this.state.page} of 4</span>
                 </div>
 
                 <div className="quiz-title">

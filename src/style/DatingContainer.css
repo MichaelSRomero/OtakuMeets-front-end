@@ -128,6 +128,10 @@
   transform: scale(1.1);
 }
 
+.game-icon-small:active, .game-icon-large:active {
+  transform: rotate(90deg);
+}
+
 .toolbar {
   display: flex;
   justify-content: center;
@@ -382,6 +386,7 @@
   height: 507px;
   width: calc(100% - 40px);
   padding: 10px 20px;
+  overflow: auto;
 }
 
 .chat-message {
@@ -413,6 +418,7 @@
 
 .message-content {
   font-size: 14px;
+  word-break: break-all;
 }
 
 .message-bar {

@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import homeLogo from '../images/couple-home-page.png'
 import smallLogo from '../images/otaku-meets-small-logo.png'
+import railsLogo from '../images/rails-logo.png'
+import reactLogo from '../images/react-logo.png'
 
 class Home extends React.Component {
   render() {
@@ -34,9 +36,15 @@ class Home extends React.Component {
               By clicking Join, you agree to our <a href="/" target="_blank">Terms of Service</a>. Learn about how we process and use your data in our <a href="/" target="_blank">Privacy Policy</a> and how we use cookies and similar technology in our <a href="/" target="_blank">Cookie Policy</a>.
             </span>
           </div>
-          
+
           <div className="powered-by">
             <span>POWERED BY: </span>
+            <a href="https://reactjs.org/" target="_blank">
+              <img className="react-logo" src={reactLogo} alt="React logo"/>
+            </a>
+            <a href="https://rubyonrails.org/" target="_blank">
+              <img className="rails-logo" src={railsLogo} alt="Ruby on Rails logo"/>
+            </a>
           </div>
         </div>
         {/**********************************

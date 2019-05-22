@@ -60,6 +60,7 @@
   height: 25%;
   width: auto;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .answer-box:nth-child(4) {
@@ -104,6 +105,7 @@
   width: 300px;
   height: 54px;
   transition: 0.3s;
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
