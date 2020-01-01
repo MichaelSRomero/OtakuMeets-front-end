@@ -19,4 +19,5 @@ rules:
   import/no-named-as-default-member: off
   arrow-body-style: off
   react/jsx-filename-extension: off
+  spaced-comment: off
 
