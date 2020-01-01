@@ -14,5 +14,9 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-rules: {}
-root: true
+rules:
+  import/no-named-as-default: off
+  import/no-named-as-default-member: off
+  arrow-body-style: off
+  react/jsx-filename-extension: off
+
