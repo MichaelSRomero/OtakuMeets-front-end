@@ -31,7 +31,7 @@ export const signUp = (newUserState, push) => {
 
           push('/quiz-splash');
         } else {
-          console.log("ERRORS: ", userJSON);
+          console.log('ERRORS: ', userJSON);
         }
       });
   };
@@ -56,7 +56,7 @@ export const logIn = (userObj, push) => {
           // PUSH EXISTING USER TO REGULAR PAGE
           push('/home');
         } else {
-          console.log("ERRORS: ", userJSON);
+          console.log('ERRORS: ', userJSON);
         }
       });
   };
@@ -137,25 +137,24 @@ export const createConversation = (currentUserID, matchedUser, textMessage) => {
 
 export const createMessage = (currentUserID, conversation, textMessage) => {
   return (dispatch) => {
-    return fetch("http://localhost:3000/messages", {
-      method: "POST",
+    return fetch('http://localhost:3000/messages', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-    		"Accept": "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify({
-        "user_id": currentUserID,
-        "conversation_id": conversation.id,
-        "content": textMessage
-      })
-    }).then(res => res.json())
-      .then(messageJSON => {
-        const updatedMessages = [...conversation.messages, messageJSON]
-        const updatedConversation = {...conversation, messages: updatedMessages}
+        user_id: currentUserID,
+        conversation_id: conversation.id,
+        content: textMessage,
+      }),
+    }).then((res) => res.json())
+      .then((messageJSON) => {
+        const updatedMessages = [...conversation.messages, messageJSON];
+        const updatedConversation = { ...conversation, messages: updatedMessages };
 
-        dispatch(addNewMessage(updatedConversation))
-        return Promise.resolve(updatedConversation)
-      })
-
-  }
-}
+        dispatch(addNewMessage(updatedConversation));
+        return Promise.resolve(updatedConversation);
+      });
+  };
+};
