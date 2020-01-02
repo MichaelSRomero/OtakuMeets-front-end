@@ -1,22 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MessageCard from './MessageCard';
 
 
-class MessageList extends React.Component {
-  createMessageCards = () => {
-    return this.props.conversations.map(user => <MessageCard
-      key={user.id}
-      userConvo={user}
-      addCurrentMatchOnClick={this.props.addCurrentMatchOnClick}/>)
-  }
+const MessageList = (props) => {
+  const {
+    conversations,
+    addCurrentMatchOnClick,
+  } = props;
+  const createMessageCards = () => {
+    return conversations.map((user) => (
+      <MessageCard
+        key={`MessageCard ${user.id}`}
+        userConvo={user}
+        addCurrentMatchOnClick={addCurrentMatchOnClick}
+      />
+    ));
+  };
 
-  render() {
-    return (
-      <div className="detail-list-messages">
-        {this.createMessageCards()}
-      </div>
-    )
-  }
-}
+  return (
+    <div className="detail-list-messages">
+      {createMessageCards()}
+    </div>
+  );
+};
+
+MessageList.propTypes = {
+  conversations: PropTypes.arrayOf(PropTypes.object),
+  addCurrentMatchOnClick: PropTypes.func,
+};
 
 export default MessageList;

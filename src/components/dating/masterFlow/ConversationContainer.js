@@ -1,62 +1,83 @@
-import React from 'react';
-import ChatMessage from './ChatMessage';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-shadow */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ChatMessage from './ChatMessage';
 import { createConversation, createMessage } from '../../../actions/authActions';
 import { addCurrentConversation } from '../../../actions/usersActions';
-import close from '../../../images/tinder-close.png'
-import genderIcon from '../../../images/gender-icon.png'
-import personalityIcon from '../../../images/personality-icon.png'
-import aliasIcon from '../../../images/alias-icon.png'
-import showIcon from '../../../images/show-icon.png'
-import enIcon from '../../../images/en-icon.png'
-import jpIcon from '../../../images/jp-icon.png'
+import close from '../../../images/tinder-close.png';
+import genderIcon from '../../../images/gender-icon.png';
+import personalityIcon from '../../../images/personality-icon.png';
+import aliasIcon from '../../../images/alias-icon.png';
+import showIcon from '../../../images/show-icon.png';
+import enIcon from '../../../images/en-icon.png';
+import jpIcon from '../../../images/jp-icon.png';
 
-class ConversationContainer extends React.Component {
-
+class ConversationContainer extends Component {
   state = {
-    textContent: ''
+    textContent: '',
   }
 
   createChatMessages = () => {
-    let currentConvo = this.props.conversation
+    // eslint-disable-next-line react/destructuring-assignment
+    const currentConvo = this.props.conversation;
+    const {
+      id,
+      user,
+    } = this.props;
 
     if (Object.keys(currentConvo).length > 0) {
-      return currentConvo.messages.map(message => <ChatMessage
-        key={message.id}
-        message={message}
-        userID={this.props.id}
-        matchUser={this.props.user}/>)
+      return currentConvo.messages.map((message) => (
+        <ChatMessage
+          key={`ChatMessage ${message.id}`}
+          message={message}
+          userID={id}
+          matchUser={user}
+        />
+      ));
     }
   }
 
   handleTextChange = (e) => {
-    this.setState({textContent: e.target.value})
+    this.setState({ textContent: e.target.value });
   }
 
   sendMessageOnClick = () => {
-    const textContent = this.state.textContent
-    let currentConvo = this.props.conversation
-    const { addCurrentConversation } = this.props
+    const { textContent } = this.state;
+    // eslint-disable-next-line react/destructuring-assignment
+    const currentConvo = this.props.conversation;
+    const {
+      id,
+      user,
+      addCurrentConversation,
+      createConversation,
+      createMessage,
+    } = this.props;
 
     if (textContent.length > 0 && Object.keys(currentConvo).length > 0) {
-      this.props.createMessage(this.props.id, currentConvo, textContent)
-        .then(promise => {
-          addCurrentConversation(promise)
-      })
+      createMessage(id, currentConvo, textContent)
+        .then((promise) => {
+          addCurrentConversation(promise);
+        });
 
-      this.setState({textContent: ''})
+      this.setState({ textContent: '' });
     } else if (textContent.length > 0 && Object.keys(currentConvo).length < 1) {
-      this.props.createConversation(this.props.id, this.props.user, textContent)
-        .then(promise => {
-          addCurrentConversation(promise)
-      })
-      
-      this.setState({textContent: ''})
+      createConversation(id, user, textContent)
+        .then((promise) => {
+          addCurrentConversation(promise);
+        });
+
+      this.setState({ textContent: '' });
     }
   }
 
   render() {
-    const { user } = this.props
+    const { textContent } = this.state;
+    const {
+      user,
+      exitProfileOnClick,
+    } = this.props;
 
     return (
       <div className="conversation-container">
@@ -68,15 +89,19 @@ class ConversationContainer extends React.Component {
           <div className="chat-nav-bar">
             <div
               className="chat-nav-avatar"
-              style={{backgroundImage: `url("${user.character['avatar_urls'][user.avatarIndex]}")`}}>
-            </div>
+              style={{ backgroundImage: `url("${user.character.avatar_urls[user.avatarIndex]}")` }}
+            />
 
-            <p>You matched with {user.username}</p>
+            <p>
+You matched with
+              {user.username}
+            </p>
 
             <img
-              onClick={this.props.exitProfileOnClick}
+              onClick={exitProfileOnClick}
               src={close}
-              alt="close button"/>
+              alt="close button"
+            />
           </div>
 
           <div className="chat-box">
@@ -91,13 +116,14 @@ class ConversationContainer extends React.Component {
             <input
               type="text"
               placeholder="Type a message"
-              value={this.state.textContent}
-              onChange={this.handleTextChange}>
-            </input>
+              value={textContent}
+              onChange={this.handleTextChange}
+            />
 
             <div
               className="submit-message"
-              onClick={this.sendMessageOnClick}>
+              onClick={this.sendMessageOnClick}
+            >
               <span>SEND</span>
             </div>
           </div>
@@ -108,8 +134,8 @@ class ConversationContainer extends React.Component {
         <div className="profile">
           <div
             className="profile-avatar"
-            style={{backgroundImage: `url("${user.character['avatar_urls'][user.avatarIndex]}")`}}>
-          </div>
+            style={{ backgroundImage: `url("${user.character.avatar_urls[user.avatarIndex]}")` }}
+          />
 
           <div className="profile-header-tab">
             <div className="profile-header">
@@ -130,7 +156,7 @@ class ConversationContainer extends React.Component {
                 <img
                   src={genderIcon}
                   alt="Gender Icon"
-                  />
+                />
                 <span>{user.gender}</span>
               </div>
 
@@ -144,7 +170,7 @@ class ConversationContainer extends React.Component {
                 src={enIcon}
                 alt="English Name Icon"
               />
-              <span>{user.character['english_name']}</span>
+              <span>{user.character.english_name}</span>
             </div>
 
             <div className="character-row">
@@ -152,7 +178,7 @@ class ConversationContainer extends React.Component {
                 src={jpIcon}
                 alt="Japanese Name Icon"
               />
-              <span>{user.character['japanese_name']}</span>
+              <span>{user.character.japanese_name}</span>
             </div>
 
             <div className="character-row">
@@ -177,12 +203,30 @@ class ConversationContainer extends React.Component {
         </div>
 
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = ({ auth }) => {
-  return {id: auth.id}
-}
+  return { id: auth.id };
+};
+
+ConversationContainer.propTypes = {
+  id: PropTypes.number,
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    age: PropTypes.number,
+    gender: PropTypes.string,
+    character: PropTypes.object,
+    avatarIndex: PropTypes.number,
+  }),
+  conversation: PropTypes.shape({
+    messages: PropTypes.arrayOf(PropTypes.object),
+  }),
+  addCurrentConversation: PropTypes.func,
+  createMessage: PropTypes.func,
+  createConversation: PropTypes.func,
+  exitProfileOnClick: PropTypes.func,
+};
 
 export default connect(mapStateToProps, { createConversation, createMessage, addCurrentConversation })(ConversationContainer);
