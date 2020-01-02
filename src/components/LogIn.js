@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logIn } from '../actions/authActions'
-import '../style/login.css'
-import loginGIF from '../images/login.gif'
+import { logIn } from '../actions/authActions';
+import '../style/login.css';
+import loginGIF from '../images/login.gif';
 
-class LogIn extends React.Component {
+class LogIn extends Component {
   state = {
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   }
 
   handleLogIn = (e) => {
     e.preventDefault();
-    this.props.logIn(this.state, this.props.history.push)
+    const { history } = this.props;
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.logIn(this.state, history.push);
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   }
 
   render() {
@@ -31,7 +34,7 @@ class LogIn extends React.Component {
           </div>
 
           <div className="login-img">
-            <img id="login-img" src={loginGIF} alt="Logo GIF"/>
+            <img id="login-img" src={loginGIF} alt="Logo GIF" />
           </div>
 
           <form className="login-form" onSubmit={this.handleLogIn}>
@@ -40,9 +43,11 @@ class LogIn extends React.Component {
               <span>Email</span>
               <input
                 className="login-inputs"
-                type="text" name="email"
+                type="text"
+                name="email"
                 placeholder="Email"
-                onChange={this.handleChange}/>
+                onChange={this.handleChange}
+              />
             </label>
             {/*************PASSWORD**************/}
             <label>
@@ -52,7 +57,8 @@ class LogIn extends React.Component {
                 type="password"
                 name="password"
                 placeholder="Password"
-                onChange={this.handleChange}/>
+                onChange={this.handleChange}
+              />
             </label>
             <div className="login-forgot">
               <span>Forgot password?</span>
@@ -61,17 +67,25 @@ class LogIn extends React.Component {
             <input
               className="login-submit"
               type="submit"
-              value="SIGN IN"/>
+              value="SIGN IN"
+            />
           </form>
 
           <div className="facebook-login">
             <span>SIGN IN WITH FACEBOOK</span>
           </div>
-          
+
         </div>
       </div>
-    )
+    );
   }
 }
+
+LogIn.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  logIn: PropTypes.func,
+};
 
 export default connect(null, { logIn })(LogIn);
