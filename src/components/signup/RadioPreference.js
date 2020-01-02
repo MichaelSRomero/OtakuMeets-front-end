@@ -1,26 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class RadioPreference extends React.Component {
-  render() {
-    return (
-      <div className="radio-container">
+const RadioPreference = (props) => {
+  const {
+    preferenceValue,
+    handleChange,
+  } = props;
+  return (
+    <div className="radio-container">
 
-        <div className="preference-name">
-          <span>{this.props.preferenceValue.title}</span>
-        </div>
-
-        <div className="preference-radio">
-          <input
-            type="radio"
-            name="preference"
-            value={this.props.preferenceValue.gender}
-            onChange={this.props.handleChange}>
-          </input>
-        </div>
-        
+      <div className="preference-name">
+        <span>{preferenceValue.title}</span>
       </div>
-    )
-  }
-}
+
+      <div className="preference-radio">
+        <input
+          type="radio"
+          name="preference"
+          value={preferenceValue.gender}
+          onChange={handleChange}
+        />
+      </div>
+
+    </div>
+  );
+};
+
+RadioPreference.propTypes = {
+  preferenceValue: PropTypes.shape({
+    title: PropTypes.string,
+    gender: PropTypes.string,
+  }),
+  handleChange: PropTypes.func,
+};
 
 export default RadioPreference;
