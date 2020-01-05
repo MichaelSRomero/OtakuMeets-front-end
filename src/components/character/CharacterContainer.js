@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Personality from './Personality';
 import '../../style/characterContainer.css';
 
-class CharacterContainer extends Component {
+export class CharacterContainer extends Component {
   state = {
     currentIndex: 0,
   }
@@ -33,6 +33,7 @@ class CharacterContainer extends Component {
     for (let i = 0; i < 4; i += 1) {
       personalities.push(
         <Personality
+          key={`Personality ${i}`}
           getPersonalityType={this.getPersonalityType}
           handleClick={this.handleClick}
           index={i}

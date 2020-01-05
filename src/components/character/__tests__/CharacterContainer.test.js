@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CharacterContainer from '../CharacterContainer';
+import { CharacterContainer } from '../CharacterContainer';
 
 describe('React unit tests', () => {
   describe('CharacterContainer Component', () => {
@@ -15,9 +15,44 @@ describe('React unit tests', () => {
         personality: 'ESFP',
         avatar_urls: [],
       },
-      traits: {},
+      traits: {
+        extraversion: {
+          title: 'extraversion',
+          symbol: 'E',
+        },
+        introversion: {
+          title: 'introversion',
+          symbol: 'I',
+        },
+        sensing: {
+          title: 'sensing',
+          symbol: 'S',
+        },
+        intuition: {
+          title: 'intuition',
+          symbol: 'N',
+        },
+        thinking: {
+          title: 'thinking',
+          symbol: 'T',
+        },
+        feeling: {
+          title: 'feeling',
+          symbol: 'F',
+        },
+        judging: {
+          title: 'judging',
+          symbol: 'J',
+        },
+        perceiving: {
+          title: 'perceiving',
+          symbol: 'P',
+        },
+      },
       token: 'abc123',
-      history: jest.fn(),
+      history: {
+        push: jest.fn(),
+      },
     };
 
     beforeAll(() => {
@@ -32,8 +67,9 @@ describe('React unit tests', () => {
     });
 
     it('Renders a <div> tag with className "character-container"', () => {
-      expect(wrapper.type()).toEqual('div');
-      expect(wrapper.hasClass('character-container')).toEqual(true);
+      const divContainer = wrapper.find('div').first();
+      expect(divContainer.type()).toEqual('div');
+      expect(divContainer.hasClass('character-container')).toEqual(true);
     });
 
     // it('Invokes "getPersonalityType" upon render', () => {
