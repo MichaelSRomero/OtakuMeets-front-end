@@ -2,83 +2,66 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { CharacterContainer } from '../CharacterContainer';
 
-describe('React unit tests', () => {
-  describe('CharacterContainer Component', () => {
-    let wrapper;
-    const props = {
-      character: {
-        english_name: 'Naruto',
-        japanese_name: 'Naruto',
-        gender: 'Male',
-        alias: 'Gutsy Ninja',
-        show: 'Naruto',
-        personality: 'ESFP',
-        avatar_urls: [],
-      },
-      traits: {
-        extraversion: {
-          title: 'extraversion',
-          symbol: 'E',
-        },
-        introversion: {
-          title: 'introversion',
-          symbol: 'I',
-        },
-        sensing: {
-          title: 'sensing',
-          symbol: 'S',
-        },
-        intuition: {
-          title: 'intuition',
-          symbol: 'N',
-        },
-        thinking: {
-          title: 'thinking',
-          symbol: 'T',
-        },
-        feeling: {
-          title: 'feeling',
-          symbol: 'F',
-        },
-        judging: {
-          title: 'judging',
-          symbol: 'J',
-        },
-        perceiving: {
-          title: 'perceiving',
-          symbol: 'P',
-        },
-      },
-      token: 'abc123',
-      history: {
-        push: jest.fn(),
-      },
-    };
+describe('CharacterContainer Component', () => {
+  let wrapper;
+  let characterContainerWrapper;
+  const props = {
+    character: {
+      english_name: 'Naruto',
+      japanese_name: 'Naruto',
+      gender: 'Male',
+      alias: 'Gutsy Ninja',
+      show: 'Naruto',
+      personality: 'ESFP',
+      avatar_urls: [],
+    },
+    traits: {
+      extraversion: { title: 'extraversion', symbol: 'E' },
+      introversion: { title: 'introversion', symbol: 'I' },
+      sensing: { title: 'sensing', symbol: 'S' },
+      intuition: { title: 'intuition', symbol: 'N' },
+      thinking: { title: 'thinking', symbol: 'T' },
+      feeling: { title: 'feeling', symbol: 'F' },
+      judging: { title: 'judging', symbol: 'J' },
+      perceiving: { title: 'perceiving', symbol: 'P' },
+    },
+    token: 'abc123',
+    history: { push: jest.fn() },
+  };
 
-    beforeAll(() => {
-      wrapper = shallow(
-        <CharacterContainer
-          character={props.character}
-          traits={props.traits}
-          token={props.token}
-          history={props.history}
-        />,
-      );
+  beforeAll(() => {
+    wrapper = shallow(
+      <CharacterContainer
+        character={props.character}
+        traits={props.traits}
+        token={props.token}
+        history={props.history}
+      />,
+    );
+    characterContainerWrapper = wrapper.find('div').first();
+  });
+
+  describe('when initialized', () => {
+    it('should render a <div> tag with className "character-container"', () => {
+      expect(characterContainerWrapper.type()).toEqual('div');
+      expect(characterContainerWrapper.hasClass('character-container')).toEqual(true);
     });
 
-    it('Renders a <div> tag with className "character-container"', () => {
-      const divContainer = wrapper.find('div').first();
-      expect(divContainer.type()).toEqual('div');
-      expect(divContainer.hasClass('character-container')).toEqual(true);
+    it('should display a <span> tag with character\'s name', () => {
+      const characterNameDiv = characterContainerWrapper.find('.character-name');
+      expect(characterNameDiv.children().first().type()).toEqual('span');
+      expect(characterNameDiv.children().first().text()).toEqual('Naruto');
     });
 
-    // it('Invokes "getPersonalityType" upon render', () => {
-    //   expect(props.getPersonalityType.mock.calls.length).toEqual(1);
-    // });
+    it('should render 4 Personality Components', () => {
+      const personalityHeaderDiv = characterContainerWrapper.find('.personality-header');
+      expect(personalityHeaderDiv.children()).toHaveLength(4);
+    });
 
-    // it('Invokes "handleClick" when <div> gets clicked', () => {
-    //   wrapper.simulate('click');
-    //   expect(props.handleClick.mock.calls.length).toEqual(1);
-    // });
+    it('should display a <div> tag with a trait', () => {
+      const personalityTraitDiv = characterContainerWrapper.find('.personality-trait');
+      expect(personalityTraitDiv.type()).toEqual('div');
+      expect(personalityTraitDiv.text()).toEqual('EXTRAVERSION');
+    });
   });
 });
