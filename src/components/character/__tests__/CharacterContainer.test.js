@@ -43,7 +43,6 @@ describe('CharacterContainer Component', () => {
 
   describe('when initialized', () => {
     describe('when token exist', () => {
-
       it('should render a <div> tag with className "character-container"', () => {
         expect(characterContainerWrapper.type()).toEqual('div');
         expect(characterContainerWrapper.hasClass('character-container')).toEqual(true);

@@ -8,7 +8,7 @@ const style = {
   borderBottom: 'rgba(255, 0, 0, 0.8) solid 3px',
 };
 
-class DetailContainer extends Component {
+export class DetailContainer extends Component {
   state = {
     currentHeader: 'Matches',
   }
