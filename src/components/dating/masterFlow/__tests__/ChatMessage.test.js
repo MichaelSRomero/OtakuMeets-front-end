@@ -28,5 +28,10 @@ describe('ChatMessage Component', () => {
       expect(wrapper.type()).toEqual('div');
       expect(wrapper.hasClass('chat-message')).toEqual(true);
     });
+
+    it('should render a <span> tag with message from a user', () => {
+      expect(wrapper.find('span').type()).toEqual('span');
+      expect(wrapper.find('span').text()).toEqual('hey');
+    });
   });
 });

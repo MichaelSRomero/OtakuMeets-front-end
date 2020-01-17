@@ -14,7 +14,7 @@ import showIcon from '../../../images/show-icon.png';
 import enIcon from '../../../images/en-icon.png';
 import jpIcon from '../../../images/jp-icon.png';
 
-class ConversationContainer extends Component {
+export class ConversationContainer extends Component {
   state = {
     textContent: '',
   }
