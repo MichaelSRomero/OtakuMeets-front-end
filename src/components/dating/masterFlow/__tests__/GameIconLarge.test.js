@@ -6,6 +6,7 @@ describe('GameIconLarge Component', () => {
   let wrapper;
   const props = {
     handleClick: jest.fn(),
+    img: 'fakeimage.com',
   };
 
   beforeAll(() => {
@@ -14,6 +15,12 @@ describe('GameIconLarge Component', () => {
         handleClick={props.handleClick}
       />,
     );
+  });
+
+  describe('when recieving props', () => {
+    it('should check the type of handleClick', () => {
+
+    });
   });
 
   describe('when initialized', () => {
