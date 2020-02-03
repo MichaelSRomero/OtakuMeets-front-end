@@ -1,22 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MatchCard from './MatchCard';
 
-
-class MatchList extends React.Component {
-  createMatchCards = () => {
-    return this.props.matches.map(user => <MatchCard
-        key={user.id}
+const MatchList = (props) => {
+  const {
+    matches,
+    addCurrentMatchOnClick,
+  } = props;
+  const createMatchCards = () => {
+    return matches.map((user) => (
+      <MatchCard
+        key={`MatchCard ${user.id}`}
         user={user}
-        addCurrentMatchOnClick={this.props.addCurrentMatchOnClick}/>)
-  }
+        addCurrentMatchOnClick={addCurrentMatchOnClick}
+      />
+    ));
+  };
 
-  render() {
-    return (
-      <div className="detail-list">
-        {this.createMatchCards()}
-      </div>
-    )
-  }
-}
+  return (
+    <div className="detail-list">
+      {createMatchCards()}
+    </div>
+  );
+};
+
+MatchList.propTypes = {
+  matches: PropTypes.arrayOf(PropTypes.object),
+  addCurrentMatchOnClick: PropTypes.func,
+};
+
 
 export default MatchList;

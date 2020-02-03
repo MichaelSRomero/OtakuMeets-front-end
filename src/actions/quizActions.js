@@ -1,7 +1,7 @@
 /////////////////////////////////////////
 //___________ACTION CREATORS___________//
 /////////////////////////////////////////
-const addTraits = (traits) => ({type: 'ADD_TRAITS', payload: traits})
+const addTraits = (traits) => ({ type: 'ADD_TRAITS', payload: traits });
 
 /////////////////////////////////////////
 //___________THUNK CREATORS____________//
@@ -9,9 +9,9 @@ const addTraits = (traits) => ({type: 'ADD_TRAITS', payload: traits})
 export const getTraits = () => {
   return (dispatch) => {
     return fetch('http://localhost:3000/traits')
-      .then(res => res.json())
-      .then(traitsJSON => {
-        dispatch(addTraits(traitsJSON))
+      .then((res) => res.json())
+      .then((traitsJSON) => {
+        dispatch(addTraits(traitsJSON));
       });
-  }
-}
+  };
+};

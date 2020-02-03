@@ -1,51 +1,59 @@
-import React from 'react';
-import RadioGender from './RadioGender'
-import RadioPreference from './RadioPreference'
-import { signUp } from '../../actions/authActions'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import '../../style/signup.css'
+import RadioGender from './RadioGender';
+import RadioPreference from './RadioPreference';
+import { signUp } from '../../actions/authActions';
+import '../../style/signup.css';
 
 const genders = [
-  {title: "Man", gender: "Male"},
-  {title: "Woman", gender: "Female"},
-  {title: "Other", gender: "Other"}
-]
+  { title: 'Man', gender: 'Male' },
+  { title: 'Woman', gender: 'Female' },
+  { title: 'Other', gender: 'Other' },
+];
 
 const preferences = [
-  {title: "Men", gender: "Male"},
-  {title: "Women", gender: "Female"},
-  {title: "Both", gender: "Both"},
-]
+  { title: 'Men', gender: 'Male' },
+  { title: 'Women', gender: 'Female' },
+  { title: 'Both', gender: 'Both' },
+];
 
-class SignUp extends React.Component {
+class SignUp extends Component {
   state = {
-    email: "",
-    username: "",
-    password: "",
-    gender: "",
-    preference: ""
+    email: '',
+    username: '',
+    password: '',
+    gender: '',
+    preference: '',
   }
 
   handleSignUp = (e) => {
     e.preventDefault();
-    this.props.signUp(this.state, this.props.history.push)
+    const { history } = this.props;
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.signUp(this.state, history.push);
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
+      [e.target.name]: e.target.value,
+    });
   }
 
   createRadioGenders = () => {
-    return genders.map(genderObj => <RadioGender handleChange={this.handleChange} genderValue={genderObj}/>)
+    return genders.map((genderObj) => <RadioGender handleChange={this.handleChange} genderValue={genderObj} />);
   }
 
   createRadioPreferences = () => {
-    return preferences.map(preferenceObj => <RadioPreference handleChange={this.handleChange} preferenceValue={preferenceObj}/>)
+    return preferences.map((preferenceObj) => <RadioPreference handleChange={this.handleChange} preferenceValue={preferenceObj} />);
   }
 
   render() {
+    const {
+      email,
+      username,
+      password,
+    } = this.state;
     return (
       <div id="sign-up">
         <div className="outer-form">
@@ -67,9 +75,9 @@ class SignUp extends React.Component {
               type="text"
               name="email"
               placeholder="your.email@example.com"
-              value={this.state.email}
-              onChange={this.handleChange}>
-            </input>
+              value={email}
+              onChange={this.handleChange}
+            />
 
             <div className="form-column">
               {/**************USERNAME**************/}
@@ -78,9 +86,9 @@ class SignUp extends React.Component {
                 type="text"
                 name="username"
                 placeholder="username"
-                value={this.state.username}
-                onChange={this.handleChange}>
-              </input>
+                value={username}
+                onChange={this.handleChange}
+              />
 
               {/**************PASSWORD**************/}
               <input
@@ -88,9 +96,9 @@ class SignUp extends React.Component {
                 type="password"
                 name="password"
                 placeholder="password"
-                value={this.state.password}
-                onChange={this.handleChange}>
-              </input>
+                value={password}
+                onChange={this.handleChange}
+              />
             </div>
 
             <label>
@@ -118,14 +126,21 @@ class SignUp extends React.Component {
               className="signup-submit"
               type="submit"
               name="submit"
-              value="NEXT">
-            </input>
+              value="NEXT"
+            />
 
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
+
+SignUp.propTypes = {
+  signUp: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+};
 
 export default connect(null, { signUp })(SignUp);

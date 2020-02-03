@@ -6,14 +6,14 @@ const initialState = {
   thinking: [],
   feeling: [],
   judging: [],
-  perceiving: []
-}
+  perceiving: [],
+};
 
 const quizReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case 'ADD_TRAITS':
-      const traitsArray = action.payload
-      
+  switch (action.type) {
+    case 'ADD_TRAITS': {
+      const traitsArray = action.payload;
+
       return {
         ...initialState,
         extraversion: traitsArray[0],
@@ -23,11 +23,12 @@ const quizReducer = (state = initialState, action) => {
         thinking: traitsArray[4],
         feeling: traitsArray[5],
         judging: traitsArray[6],
-        perceiving: traitsArray[7]
-      }
+        perceiving: traitsArray[7],
+      };
+    }
     default:
       return state;
   }
-}
+};
 
 export default quizReducer;

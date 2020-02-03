@@ -1,54 +1,69 @@
-import React from 'react';
-import '../../style/DatingContainer.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import '../../style/DatingContainer.css';
 import { connect } from 'react-redux';
-import { addCurrentUser, addCurrentConversation, removeCurrentUser } from '../../actions/usersActions'
-import MasterContainer from './masterFlow/MasterContainer'
-import ConversationContainer from './masterFlow/ConversationContainer'
-import DetailContainer from './detailFlow/DetailContainer'
+import { addCurrentUser, addCurrentConversation, removeCurrentUser } from '../../actions/usersActions';
+import MasterContainer from './masterFlow/MasterContainer';
+import ConversationContainer from './masterFlow/ConversationContainer';
+import DetailContainer from './detailFlow/DetailContainer';
 
-class DatingContainer extends React.Component {
-
+class DatingContainer extends Component {
   addCurrentMatchOnClick = (user) => {
-    let currentConvo = this.props.conversations.find(conversation => {
-      return conversation.user.id === user.id
-    })
+    const {
+      conversations,
+    } = this.props;
+    const currentConvo = conversations.find((conversation) => {
+      return conversation.user.id === user.id;
+    });
 
     if (currentConvo !== undefined) {
-      this.props.addCurrentUser(user)
-      this.props.addCurrentConversation(currentConvo)
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.addCurrentUser(user);
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.addCurrentConversation(currentConvo);
     } else {
-      this.props.addCurrentUser(user)
-      this.props.addCurrentConversation({})
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.addCurrentUser(user);
+      // eslint-disable-next-line react/destructuring-assignment
+      this.props.addCurrentConversation({});
     }
   }
 
   exitProfileOnClick = () => {
-    this.props.removeCurrentUser()
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.removeCurrentUser();
   }
 
   render() {
+    const {
+      token,
+      history,
+      currentClicked,
+      currentConversation,
+    } = this.props;
     return (
-      <React.Fragment>
-        { this.props.token ?
-          <div className="dating-container">
-            <DetailContainer
-              addCurrentMatchOnClick={this.addCurrentMatchOnClick}/>
-
-            { Object.keys(this.props.currentClicked).length > 0 ?
-              <ConversationContainer
-                exitProfileOnClick={this.exitProfileOnClick}
-                user={this.props.currentClicked}
-                conversation={this.props.currentConversation}
+      <>
+        { token
+          ? (
+            <div className="dating-container">
+              <DetailContainer
+                addCurrentMatchOnClick={this.addCurrentMatchOnClick}
               />
-              :
-              <MasterContainer />
-            }
-          </div>
-          :
-          this.props.history.push("/")
-        }
-      </React.Fragment>
-    )
+
+              { Object.keys(currentClicked).length > 0
+                ? (
+                  <ConversationContainer
+                    exitProfileOnClick={this.exitProfileOnClick}
+                    user={currentClicked}
+                    conversation={currentConversation}
+                  />
+                )
+                : <MasterContainer />}
+            </div>
+          )
+          : history.push('/')}
+      </>
+    );
   }
 }
 
@@ -57,8 +72,21 @@ const mapStateToProps = ({ auth, users }) => {
     conversations: auth.conversations,
     currentClicked: users.currentClicked,
     currentConversation: users.currentConversation,
-    token: auth.token
-  }
-}
+    token: auth.token,
+  };
+};
+
+DatingContainer.propTypes = {
+  token: PropTypes.string,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  currentClicked: PropTypes.shape({}),
+  currentConversation: PropTypes.shape({}),
+  conversations: PropTypes.arrayOf(PropTypes.object),
+  addCurrentUser: PropTypes.func,
+  addCurrentConversation: PropTypes.func,
+  removeCurrentUser: PropTypes.func,
+};
 
 export default connect(mapStateToProps, { addCurrentUser, addCurrentConversation, removeCurrentUser })(DatingContainer);
